@@ -5,67 +5,186 @@ body {
     height: 100vh;
   }
 
-  #main {
-    height: 100%;
-    padding: 60px 45px 20px 360px;
-    background-color: #f7f5f5;
-    margin: 0px;
-    border-style: solid;
-    border-width: 0px 60px 0px 0px;
-    border-color: #7c00a1;
+#main {
+  height: 100%;
+  padding: 60px 45px 20px 360px;
+  background-color: #f7f5f5;
+  margin: 0px;
+  border-style: solid;
+  border-width: 0px 60px 0px 0px;
+  border-color: #7c00a1;
 
+}
+/* <------------navbar section-------------> */
+.sidenav {
+  height: 100%;
+  width: 300px;
+  padding-right;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fcac00;
+  text-align: center;
+}
+
+.sidenav header {
+  padding: 6px 8px 6px 8px;
+  text-decoration: none;
+  font-size: 130px;
+  color: black;
+  display: block;
+  font-family: Nerko One;
+  text-align:center;
   }
 
-  .sidenav {
-    height: 100%;
-    width: 290px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #facc00;
-    overflow-x: hidden;
-    padding-top: 40px;
-    text-align: left;
-  }
 
-  .sidenav header {
-    padding: 6px 8px 6px 8px;
-    text-decoration: none;
-    font-size: 50px;
-    color: black;
-    display: block;
-    font-family: Playfair Display;
-    text-align:center;
-   }
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: white;
-    display: block;
-    font-family: Oswald;
-  }
+  input {
+  border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  padding: 0;
+  -webkit-appearance: none;
+}
+#login {
+  margin: auto;
+  width: 60%;
+}
 
-  .sidenav a:hover {
-    color: #fa5700;
-  }
+#login form {
+  /* margin-left: auto;
+  margin-right: auto; */
+  padding: 22px 22px 22px 22px;
+  width: 100%;
+  border-radius: 10px;
+  background: #282e33;
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #5c6269;
+}
 
-  header {
-    font-family: Playfair Display;
-    font-size: 35px;
-    color: #1d519c;
-    display: block;
-  }
+#login form span {
+  background-color: #363b41;
+  border-radius: 10px;;
+  border-right: 3px solid #434a52;
+  color: #606468;
+  display: block;
+  float: left;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
 
-  p {
-    font-family: Raleway;
-    margin: 20px;
-  }
+#login form input[type="text"] {
+  background-color: #3b4148;
+  border-radius: 10px;
+  color: #a9a9a9;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 80%;
+  height: 50px;
+}
 
-  li {
-    font-family: Raleway;
-  }
+
+#login form input[type="submit"] {
+  background: #b5cd60;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+#login form input[type="submit"]:hover {
+  background: #16aa56;
+}
+/* <------------game section-------------> */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.deck {
+  width: 550px; /*680px*/
+  height: 550px; /*680px*/
+  background: linear-gradient(160deg,#16aa56 0%, rgba(219, 241, 92, 0.555) 100%);
+  padding: 30px;  /*32px*/
+  border-radius: 20px;
+  box-shadow: 12px 15px 20px 0 rgba(73, 71, 46, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 3em;
+}
+
+.deck .card {
+  height: 125px; /*125px*/
+  width: 125px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background: rgba(73, 64, 46, 0.9);
+  color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+/* .deck .card.open {
+  transform: rotateY(0);
+  background: #86a9e3; /*#02b3e4*/
+  cursor: default;
+  animation-name: flipInY;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  animation-duration: .75s;
+} */
+
+/* .deck .card.show {
+  font-size: 33px;
+} */
+
+/* .deck .card.match {
+  cursor: default;
+  background: #1bc45f;
+  font-size: 33px;
+  animation-name: rubberBand;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  animation-duration: .75s;
+
+} */
+
+/* .deck .card.unMatch {
+  animation-name: pulse;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  animation-duration: .75s;
+  cursor: default;
+  background: #ffb366;
+  font-size: 33px;
+} */ 
+
+.back {
+  background: #2e3d49;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.check {
+  transform: rotateY(180deg);
+}
+
 
   @media (max-width: 600px) {
       navbar {
