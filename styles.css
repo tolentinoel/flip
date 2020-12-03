@@ -99,10 +99,18 @@ input {
 #login form input[type="submit"]:hover {
   background: #36a10c;
 }
-#checkDiv{
-  margin: 10px 0px 10px 0px;
+
+
+
+#options div{
+  line-height: 2em;
 }
-#checkDiv label{
+
+#difDiv{
+  margin: 10px 0px 10px 0px;
+  line-height: 1.5em;
+}
+#difDiv label{
   color: #c304e6;
   font-family: Nerko One;
   font-size: 25px;
@@ -111,9 +119,11 @@ input {
 
 #radioDiv{
   margin: 10px 0px 10px 0px;
+  line-height: 1.5em;
 }
 
 #radioDiv p{
+
   color: #f7f6f6;
   font-family: Nerko One;
   font-size: 35px;
@@ -129,9 +139,18 @@ input {
 }
 
 #startPlay{
-  color: gray;
-  margin: 30px 0px 15px 0px;
-  
+  background:#a8d202;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+#startPlay:hover{
+  background: #36a10c;
 }
 
 /* <------------game section-------------> */
@@ -201,7 +220,7 @@ input {
   cursor: default;
   background: #ffb366;
   font-size: 33px;
-} */ 
+} */
 
 .back {
   background: #2e3d49;
@@ -218,4 +237,3 @@ input {
 }
 
 
-  
