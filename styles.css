@@ -12,7 +12,7 @@ body {
   margin: 0px;
   border-style: solid;
   border-width: 0px 60px 0px 0px;
-  border-color: #7c00a1;
+  border-color: #a1009c;
 
 }
 /* <------------navbar section-------------> */
@@ -24,7 +24,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #fcac00;
+  background-color: #00abfc;
   text-align: center;
 }
 
@@ -32,14 +32,15 @@ body {
   padding: 6px 8px 6px 8px;
   text-decoration: none;
   font-size: 130px;
-  color: black;
   display: block;
   font-family: Nerko One;
   text-align:center;
+  text-shadow: 0 -1px 0 #fff, 0 -1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 8px 0 #1e1e1e, 0 5px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 9px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 10px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
+  color: #bdea06;
   }
 
 
-  input {
+input {
   border: none;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 16px;
@@ -49,15 +50,13 @@ body {
 }
 #login {
   margin: auto;
-  width: 60%;
+  width: 80%;
 }
 
 #login form {
-  /* margin-left: auto;
-  margin-right: auto; */
   padding: 22px 22px 22px 22px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 20px;
   background: #282e33;
   border-top: 3px solid #434a52;
   border-bottom: 3px solid #5c6269;
@@ -82,24 +81,59 @@ body {
   color: #a9a9a9;
   margin-bottom: 1em;
   padding: 0 16px;
-  width: 80%;
+  width: 100%;
   height: 50px;
 }
 
 
 #login form input[type="submit"] {
-  background: #b5cd60;
+  background:#a8d202;
   border: 0;
   width: 100%;
   height: 40px;
-  border-radius: 3px;
+  border-radius: 8px;
   color: white;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
 #login form input[type="submit"]:hover {
-  background: #16aa56;
+  background: #36a10c;
 }
+#checkDiv{
+  margin: 10px 0px 10px 0px;
+}
+#checkDiv label{
+  color: #c304e6;
+  font-family: Nerko One;
+  font-size: 25px;
+  text-shadow: 2px 2px 1px #101215;
+}
+
+#radioDiv{
+  margin: 10px 0px 10px 0px;
+}
+
+#radioDiv p{
+  color: #f7f6f6;
+  font-family: Nerko One;
+  font-size: 35px;
+  text-shadow: 2px 2px 1px #769a25;
+  margin-bottom: 0;
+}
+
+#radioDiv label{
+  color: #ff7b07;
+  font-family: Nerko One;
+  font-size: 25px;
+  text-shadow: 2px 2px 1px #101215;
+}
+
+#startPlay{
+  color: gray;
+  margin: 30px 0px 15px 0px;
+  
+}
+
 /* <------------game section-------------> */
 .container {
   display: flex;
@@ -109,10 +143,10 @@ body {
 }
 
 .deck {
-  width: 550px; /*680px*/
-  height: 550px; /*680px*/
-  background: linear-gradient(160deg,#16aa56 0%, rgba(219, 241, 92, 0.555) 100%);
-  padding: 30px;  /*32px*/
+  width: 485px;
+  height: 485px;
+  background: linear-gradient(160deg,#00a192 0%, rgba(219, 241, 92, 0.555) 100%);
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 12px 15px 20px 0 rgba(73, 71, 46, 0.5);
   display: flex;
@@ -123,16 +157,14 @@ body {
 }
 
 .deck .card {
-  height: 125px; /*125px*/
-  width: 125px;
+  height: 23%;
+  width: 23%;
   margin: 0.2rem 0.2rem 0.2rem 0.2rem;
   background: rgba(73, 64, 46, 0.9);
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 21px;
   cursor: pointer;
   display: flex;
-  justify-content: center;
-  align-items: center;
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
@@ -186,8 +218,4 @@ body {
 }
 
 
-  @media (max-width: 600px) {
-      navbar {
-          position: fixed;
-      }
-  }
+  
