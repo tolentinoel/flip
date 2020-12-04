@@ -1,5 +1,9 @@
 const userUrl = 'https://localhost:3000/users'
 const login = document.querySelector('form')
+const deck = document.querySelector('#card-deck')
+
+let easyArray = ['fa-anchor', 'fa-anchor', 'fa-bicycle', 'fa-bolt', 'fa-cube', 'fa-diamond', 'fa-diamond', 'fa-plane', 'fa-leaf', 'fa-bomb', 'fa-leaf', 'fa-bomb', 'fa-bolt', 'fa-bicycle', 'fa-plane', 'fa-cube'];
+
 // Welcome page should only have username form and disabled board
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -115,14 +119,31 @@ function renderGame(ev, settings){
 }
 
 function easyGame(){
+    // FIRST, RENDER THE BOARD EASY DIFFICULTY
+    const num = deck.childElementCount
+    deck.innerHTML = " "
+    for(i=0;i < num;i++){
+    const front = document.createElement('div')
+    const back = document.createElement('div')
+    front.setAttribute('class', 'card__side')
+    back.setAttribute('class', 'card__side card__side--back is-active')
+    deck.append(back)
+    back.addEventListener('click', (e) => {
+        console.log(e)
+        // THIS SHOULD BE FUNC TO FLIP CARD
+    })
+
+   }
 
 }
 
+
 function mediumGame(){
+    deck.innerHTML = " "
 
 }
 function hardGame(){
-
+    deck.innerHTML = " "
 }
 
 function themeDefault(){
