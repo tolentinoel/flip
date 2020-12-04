@@ -123,7 +123,13 @@ function easyGame(){
     const num = deck.childElementCount
     // Empty the welcome deck aka disabled board
     deck.innerHTML = " "
+
     // loop over and make the same num of boxes/cards that was gone
+    createCards(num)
+
+}
+
+function createCards(num){
     for(i = 0;i < num; i++){
         const container = document.createElement('div')
         const cardDiv = document.createElement('div')
@@ -147,31 +153,6 @@ function easyGame(){
 
 
     }
-
-
-}
-{/* <div class="flip-card-container">
-    <div class="flip-card">
-        <div class="flip-card-front">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Albert Einstein">
-        </div>
-
-        <div class="flip-card-back">
-            <p>
-            "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
-            <span>- Albert Einstein -</span>
-            </p>
-        </div>
-
-    </div>
-</div> */}
-
-
-
-
-
-function flip(){
-    $('.card').toggleClass('flipped');
 }
 
 function mediumGame(){
