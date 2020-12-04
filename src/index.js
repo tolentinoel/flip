@@ -119,24 +119,60 @@ function renderGame(ev, settings){
 }
 
 function easyGame(){
-    // FIRST, RENDER THE BOARD EASY DIFFICULTY
+    // FIRST, RENDER THE BOARD EASY MODE
     const num = deck.childElementCount
+    // Empty the welcome deck aka disabled board
     deck.innerHTML = " "
-    for(i=0;i < num;i++){
-    const front = document.createElement('div')
-    const back = document.createElement('div')
-    front.setAttribute('class', 'card__side')
-    back.setAttribute('class', 'card__side card__side--back is-active')
-    deck.append(back)
-    back.addEventListener('click', (e) => {
-        console.log(e)
-        // THIS SHOULD BE FUNC TO FLIP CARD
-    })
+    // loop over and make the same num of boxes/cards that was gone
+    for(i = 0;i < num; i++){
+        const container = document.createElement('div')
+        const cardDiv = document.createElement('div')
+        const frontCard = document.createElement('div')
+        const backCard = document.createElement('div')
+        container.setAttribute('class', 'flip-card-container')
+        cardDiv.setAttribute('class', 'flip-card')
 
-   }
+        frontCard.setAttribute('class', "flip-card-front")
+        backCard.setAttribute('class', "flip-card-back")
+
+        container.appendChild(cardDiv)
+        cardDiv.append(frontCard, backCard)
+        deck.appendChild(container)
+
+        container.addEventListener("click", function() {
+        container.classList.toggle('flip');
+  })
+
+    // THIS SHOULD BE FUNC TO FLIP CARD
+
+
+    }
+
 
 }
+{/* <div class="flip-card-container">
+    <div class="flip-card">
+        <div class="flip-card-front">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Albert Einstein">
+        </div>
 
+        <div class="flip-card-back">
+            <p>
+            "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
+            <span>- Albert Einstein -</span>
+            </p>
+        </div>
+
+    </div>
+</div> */}
+
+
+
+
+
+function flip(){
+    $('.card').toggleClass('flipped');
+}
 
 function mediumGame(){
     deck.innerHTML = " "
