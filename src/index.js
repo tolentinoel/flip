@@ -1,5 +1,4 @@
-const userUrl = 'https://localhost:3000/users'
-const login = document.querySelector('form')
+const USERS_URL ="http://localhost:3000/users"
 const deck = document.querySelector('#card-deck')
 
 let easyArray = ['fa-anchor', 'fa-anchor', 'fa-bicycle', 'fa-bolt', 'fa-cube', 'fa-diamond', 'fa-diamond', 'fa-plane', 'fa-leaf', 'fa-bomb', 'fa-leaf', 'fa-bomb', 'fa-bolt', 'fa-bicycle', 'fa-plane', 'fa-cube'];
@@ -8,16 +7,37 @@ let easyArray = ['fa-anchor', 'fa-anchor', 'fa-bicycle', 'fa-bolt', 'fa-cube', '
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    login.addEventListener("submit", (e) => {
-        // console.log(e)
-        renderSideNav(e)
-    })
+    const login = document.querySelector('form')
+    login.addEventListener("submit", renderSideNav)
+
+
 })
+
+
 // <<<<<<-------------BUILDING ALL ELEMENTS FOR GAME OPTIONS------------------>>>>>>>
 function renderSideNav(event){
     event.preventDefault()
 
-    // event.target.reset()
+    const name = document.querySelector('input','type=text')
+    const newData = {
+        'username': name.value,
+        'boards': []
+    }
+
+    fetch(`${USERS_URL} `, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(newData)
+      })
+      .then(res => res.json())
+      .then(data => {
+              console.log(PLAYER CREATED)
+              console.log(data)
+        })
+
     event.target.querySelector('input').setAttribute('disabled', " ")
     event.target.querySelector('#submitName').setAttribute('style',"display:none")
 
@@ -70,15 +90,40 @@ function renderSideNav(event){
 
             playBtn.addEventListener('click', (ev) => {
                 renderGame(ev, enabledSettings)
+                createBoard(enabledSettings)
 
             })
         })
     })
-    let userName = document.querySelector('#user').value
+    let userName = document.querySelector('input','type=text').value
     const nameDiv = document.getElementById('name-display')
     const nameText = document.createElement('h2')
     nameText.innerText = `${userName}`
     nameDiv.appendChild(nameText)
+}
+
+function createBoard(){
+    
+    const name = document.querySelector('input','type=text')
+    const newData = {
+        'username': name.value,
+        'boards': []
+    }
+
+    fetch(`${USERS_URL} `, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(newData)
+      })
+      .then(res => res.json())
+      .then(data => {
+              console.log(PLAYER CREATED)
+              console.log(data)
+        })
+
 }
 
 // <<<<--------WHEN EVENT IS CONSOLE.LOGGED, 2 OF THE SAME EVENT LOGS-- A PROBLEM?---->>>>>>>
