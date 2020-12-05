@@ -1,4 +1,5 @@
 const USERS_URL ="http://localhost:3000/users"
+const BOARDS_URL = "http://localhost:3000/boards"
 const deck = document.querySelector('#card-deck')
 
 let easyArray = ['fa-anchor', 'fa-anchor', 'fa-bicycle', 'fa-bolt', 'fa-cube', 'fa-diamond', 'fa-diamond', 'fa-plane', 'fa-leaf', 'fa-bomb', 'fa-leaf', 'fa-bomb', 'fa-bolt', 'fa-bicycle', 'fa-plane', 'fa-cube'];
@@ -33,10 +34,7 @@ function renderSideNav(event){
         body: JSON.stringify(newData)
       })
       .then(res => res.json())
-      .then(data => {
-              console.log(PLAYER CREATED)
-              console.log(data)
-        })
+      .then(data => currentUser = data)
 
     event.target.querySelector('input').setAttribute('disabled', " ")
     event.target.querySelector('#submitName').setAttribute('style',"display:none")
@@ -87,12 +85,14 @@ function renderSideNav(event){
             .map(i => i.value) // Use Array.map to extract only the values from the array of objects.
 
             const playBtn = document.querySelector('#startPlay')
-
-            playBtn.addEventListener('click', (ev) => {
-                renderGame(ev, enabledSettings)
-                createBoard(enabledSettings)
-
-            })
+            // debugger
+            // console.log('outside of if')
+            if (enabledSettings.length === 2) {
+                playBtn.addEventListener('click', (ev) => {
+                    createBoard(enabledSettings)
+                    renderGame(ev, enabledSettings)
+                })
+            }
         })
     })
     let userName = document.querySelector('input','type=text').value
@@ -102,34 +102,39 @@ function renderSideNav(event){
     nameDiv.appendChild(nameText)
 }
 
-function createBoard(){
-    
-    const name = document.querySelector('input','type=text')
-    const newData = {
-        'username': name.value,
-        'boards': []
-    }
+function createBoard(settings){
+    const game_difficulty = `${settings[0]}`
+    const game_theme = `${settings[1]}`
 
-    fetch(`${USERS_URL} `, {
+
+// ___________________CREATING A BOARD IN THE DATABASE___________________
+    fetch(BOARDS_URL, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            "Accept": "application/json"
         },
-        body: JSON.stringify(newData)
+        body: JSON.stringify(
+                {
+                "theme": game_theme,
+                "difficulty": game_difficulty,
+                "score": "0",
+                "user_id": currentUser.id
+                }
+        )
       })
       .then(res => res.json())
-      .then(data => {
-              console.log(PLAYER CREATED)
-              console.log(data)
+      .then(boardData => {
+              console.log("BOARD CREATED")
+              console.log(boardData)
         })
+
 
 }
 
 // <<<<--------WHEN EVENT IS CONSOLE.LOGGED, 2 OF THE SAME EVENT LOGS-- A PROBLEM?---->>>>>>>
 function renderGame(ev, settings){
     ev.preventDefault()
-
     switch (settings[0]) {
         case
             "easy":
@@ -161,6 +166,7 @@ function renderGame(ev, settings){
     const btn = document.querySelector("#startPlay")
     btn.innerText = 'Quit Game'
     btn.style.backgroundColor = "#c50f21"
+    // console.log('rendered game')
 }
 
 function easyGame(){
@@ -174,8 +180,47 @@ function easyGame(){
 
 }
 
-function createCards(num){
-    for(i = 0;i < num; i++){
+function mediumGame(){
+    const count = deck.childElementCount + 8
+
+    document.querySelectorAll('.flip-card-front').forEach(card => {
+        card.style.width = "105px"
+        })
+    document.querySelectorAll('.flip-card').forEach(card => {
+        card.style.width = "105px"
+
+        })
+    document.querySelectorAll('.flip-card-container').forEach(card => {
+        card.style.width = '105px'
+
+        })
+    deck.style.width = "720px"
+    deck.innerHTML = " "
+    createCards(count)
+}
+
+function hardGame(){
+    const count = deck.childElementCount + 14
+
+    document.querySelectorAll('.flip-card-front').forEach(card => {
+        card.style.width = "75px"
+        })
+    document.querySelectorAll('.flip-card').forEach(card => {
+        card.style.width = "85px"
+
+        })
+    document.querySelectorAll('.flip-card-container').forEach(card => {
+        card.style.width = '85px'
+
+        })
+    deck.style.width = "720px"
+    deck.style.height = "600px"
+    deck.innerHTML = " "
+    createCards(count)
+}
+
+function createCards(number){
+    for(i = 0;i < number; i++){
         const container = document.createElement('div')
         const cardDiv = document.createElement('div')
         const frontCard = document.createElement('div')
@@ -192,21 +237,14 @@ function createCards(num){
 
         container.addEventListener("click", function() {
         container.classList.toggle('flip');
-  })
+        })
 
     // THIS SHOULD BE FUNC TO FLIP CARD
-
 
     }
 }
 
-function mediumGame(){
-    deck.innerHTML = " "
 
-}
-function hardGame(){
-    deck.innerHTML = " "
-}
 
 function themeDefault(){
 

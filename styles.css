@@ -7,7 +7,7 @@ body {
 
 #main {
   height: 100%;
-  padding: 60px 45px 20px 360px;
+  padding: 50px 30px 20px 345px;
   background-color: #f7f5f5;
   margin: 0px;
   border-style: solid;
@@ -190,8 +190,8 @@ input {
 /* <<<<<--- CARDS FOR THE GAME ---->>>>> */
 
 .flip-card-container {
-  width: 23%;
-  height: 23%;
+  width: 105px;
+  height: 105px;
   margin: 0.2rem 0.2rem 0.2rem 0.2rem;
   perspective: 800px;
   border-radius: 21px;
