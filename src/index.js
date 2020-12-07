@@ -1,5 +1,5 @@
-const USERS_URL ="http://localhost:3000/users"
-const BOARDS_URL = "http://localhost:3000/boards"
+const USERS_URL ="http://localhost:9292/users"
+const BOARDS_URL = "http://localhost:9292/boards"
 const deck = document.querySelector('#card-deck')
 const ICON_API = []
 const RM_API = []
@@ -34,14 +34,15 @@ function fetchIcons(){
             ICON_API.push(obj.raster_sizes[6].formats[0].preview_url)
         })
     })
+    ICON_API.slice(0, 20)
 }
-
+// debugger
 function fetchRickMorty(){
 
-    fetch("https://rickandmortyapi.com/api/character/")
+    fetch("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18")
     .then(response => response.json())
     .then(data => {
-        data.results.forEach(character => {
+        data.forEach(character => {
             RM_API.push(character.image)
 
             })
@@ -59,7 +60,7 @@ function renderSideNav(event){
         'boards': []
     }
 
-    fetch(`${USERS_URL} `, {
+    fetch(USERS_URL, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
@@ -141,6 +142,7 @@ function createBoard(settings){
     const alertDiv = document.getElementById('alert-section')
     counter.innerHTML = " "
     alertDiv.innerHTML = " "
+    deck.style.pointerEvents = " "
     const game_difficulty = `${settings[0]}`
     const game_theme = `${settings[1]}`
 
@@ -177,45 +179,73 @@ function renderGame(ev, settings){
     switch (settings[0]) {
         case
             "easy":
-            easyGame()
+            let ezrm
+            console.log("BEGINNING OF EASY")
+            if (settings[1] == 'default'){
+                themeDefault()
+                easyGame(easyArray)
+            } else if (settings[1] == 'rickMorty'){
+                ezrm = RM_API.slice(0, 8)
+                const newArr = ezrm.concat(ezrm)
+                themeRickMorty()
+                easyGame(newArr)
+            } else {
+                ezrm = ICON_API.slice(0, 8)
+                const newArr = ezrm.concat(ezrm)
+                themeVector()
+                easyGame(newArr)
+            }
+            console.log("END OF EASY")
+            // debugger
             break;
         case
             "medium":
-            mediumGame()
+            let medrm
+            if (settings[1] == 'default'){
+                themeDefault()
+                mediumGame(mediumArray)
+            } else if (settings[1] == 'rickMorty'){
+                medrm = RM_API.slice(0, 12)
+                const newArr = medrm.concat(medrm)
+                themeRickMorty()
+                mediumGame(newArr)
+            } else {
+                medrm = ICON_API.slice(0, 12)
+                const newArr = medrm.concat(medrm)
+                themeVector()
+                mediumGame(newArr)
+            }
             break;
         case
             "hard":
-            hardGame()
+            let hardrm
+            if (settings[1] == 'default'){
+                themeDefault()
+                hardGame(hardArray)
+            } else if (settings[1] == 'rickMorty'){
+                hardrm = RM_API
+                const newArr = hardrm.concat(hardrm)
+                themeRickMorty()
+                hardGame(newArr)
+            } else {
+                hardrm = ICON_API
+                const newArr = hardrm.concat(hardrm)
+                themeVector()
+                hardGame(newArr)
+            }
+    }
 
-    }
-    switch (settings[1]) {
-        case
-            "default":
-            themeDefault()
-            break;
-        case
-            "rickMorty":
-            themeRickMorty()
-            break;
-        case
-            "vectors":
-            themeVector()
-            break;
-    }
     const btn = document.querySelector("#startPlay")
     btn.innerText = 'Restart Game'
     btn.style.backgroundColor = "#c405e6"
-    // btn.addEventListener('click', () => {
-    //     document.location.reload()
-    // })
-    // console.log('rendered game')
+
 }
 
 
-// <<<<<---------------- GAME DIFFICULTY FUNCTIONS ------->>>>>>>>>>
+// <<<<<---------------- GAME DIFFICULTY FUNCTIONS ---------------->>>>>>>>>>
 
 
-function easyGame(){
+function easyGame(arr){
     // FIRST, RENDER THE BOARD EASY MODE
     const num = 16
     // Empty the welcome deck aka disabled board
@@ -224,18 +254,28 @@ function easyGame(){
     createCards(num)
     const cardDiv = deck.querySelectorAll('.flip-card-back')
 
-    easyArray.sort(() => Math.random() - 0.6)
+    arr.sort(() => Math.random() - 0.6)
     for(let b = 0;b < cardDiv.length; b+=1){
-        const icon = document.createElement('i')
-        cardDiv[b].appendChild(icon)
-        icon.setAttribute('class', easyArray[b])
+        if(arr[0].length > 20) {
+            const icon = document.createElement('img')
+            cardDiv[b].appendChild(icon)
+            icon.setAttribute('src', arr[b])
+            icon.setAttribute('width', "70px")
+            icon.setAttribute('height', "70px")
+            icon.style.borderRadius = "5px"
+        } else {
+            const icon = document.createElement('i')
+            cardDiv[b].appendChild(icon)
+            icon.setAttribute('class', arr[b])
+
+        }
 
     }
 collectClicks()
 
 }
 
-function mediumGame(){
+function mediumGame(mediumArr){
     const count = 24
     deck.style.width = "700px"
     deck.innerHTML = " "
@@ -243,17 +283,26 @@ function mediumGame(){
      // <<<<----------SELECTING ALL CARD-BACKS TO RENDER THE ICONS---------->>>>
      const cardDiv = deck.querySelectorAll('.flip-card-back')
 
-     mediumArray.sort(() => Math.random() - 0.6)
+     mediumArr.sort(() => Math.random() - 0.6)
      for(let b = 0;b < cardDiv.length; b+=1){
-         const icon = document.createElement('i')
-         cardDiv[b].appendChild(icon)
-         icon.setAttribute('class', mediumArray[b])
+        if(mediumArr[0].length > 20) {
+            const icon = document.createElement('img')
+            cardDiv[b].appendChild(icon)
+            icon.setAttribute('src', mediumArr[b])
+            icon.setAttribute('width', "70px")
+            icon.setAttribute('height', "70px")
+            icon.style.borderRadius = "5px"
+        } else {
+            const icon = document.createElement('i')
+            cardDiv[b].appendChild(icon)
+            icon.setAttribute('class', mediumArr[b])
 
+        }
      }
  collectClicks()
 }
 
-function hardGame(){
+function hardGame(hArray){
     const count = 36
     deck.style.width = "800px"
     deck.style.height = "485px"
@@ -262,11 +311,21 @@ function hardGame(){
 
     const cardDiv = deck.querySelectorAll('.flip-card-back')
 
-     hardArray.sort(() => Math.random() - 0.5)
+     hArray.sort(() => Math.random() - 0.5)
      for(let b = 0;b < cardDiv.length; b+=1){
-         const icon = document.createElement('i')
-         cardDiv[b].appendChild(icon)
-         icon.setAttribute('class', hardArray[b])
+        if (hArray[0].length > 20) {
+            const icon = document.createElement('img')
+            cardDiv[b].appendChild(icon)
+            icon.setAttribute('src', hArray[b])
+            icon.setAttribute('width', "70px")
+            icon.setAttribute('height', "70px")
+            icon.style.borderRadius = "5px"
+        } else {
+            const icon = document.createElement('i')
+            cardDiv[b].appendChild(icon)
+            icon.setAttribute('class', hArray[b])
+
+        }
 
      }
  collectClicks()
@@ -337,6 +396,32 @@ function themeDefault(){
 
 }
 
+function themeRickMorty(){
+    const main = document.querySelector('main')
+    main.style.backgroundColor = '#dff0f4'
+    main.style.borderColor = '#490244'
+    deck.style.boxShadow = '12px 15px 20px 0 #28a745'
+    deck.style.background = "linear-gradient(160deg,#0aa6ce, #9ac430 100%)"
+    document.querySelectorAll('.flip-card-front').forEach(card => {
+        card.style.backgroundColor = '#fae935d9'
+    })
+
+
+}
+
+function themeVector(){
+    const main = document.querySelector('main')
+    main.style.backgroundColor = '#f2d1ff'
+    main.style.borderColor = '#4b2b48'
+    deck.style.boxShadow = '#055365 12px 15px 20px 0px'
+    deck.style.background = "linear-gradient(160deg, rgb(27 54 81), rgb(222 211 229) 100%);"
+    document.querySelectorAll('.flip-card-front').forEach(card => {
+        card.style.backgroundColor = '#889d32'
+    })
+}
+
+
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
  }
@@ -346,9 +431,19 @@ function collectClicks(){
         const pair = []
         const clicks = []
         const containers = deck.querySelectorAll('.flip-card-container')
+        let theTarget
+
         containers.forEach(square => {
             square.addEventListener('click', (e) => {
-                pair.push(e.target.parentElement.querySelector('i').className) //Expecting array [<iconclass>,<iconclass>]
+                // debugger
+                if (e.target.parentElement.querySelector('i')){
+                    theTarget = e.target.parentElement.querySelector('i').className
+
+                } else {
+                    theTarget = e.target.parentElement.querySelector('img').src
+                }
+
+                pair.push(theTarget) //Expecting array [<iconclass>,<iconclass>]
                 clicks.push(e.target)
 
                 switch (pair.length) {
@@ -378,6 +473,7 @@ async function checkCard(cardsArray, clicksArray){
     const theCards = document.querySelectorAll('.flip-card')
 
     if (cardsArray[0] !== cardsArray[1]) {
+        
 //<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>
         clicksArray.forEach(target => {
             target.parentNode.parentNode.className = "flip-card-container"
@@ -448,9 +544,9 @@ async function checkCard(cardsArray, clicksArray){
         alertDiv.innerHTML= `
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Well done!</h4>
-            <p>Aww yeah, you successfully finish a round!</p>
+            <p>Aww yeah, you successfully finish a round! YOU GOT ${100 - currentBoard.moves}!</p>
             <hr>
-            <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link"><strong>Quit</strong></a> to exit the game. Thank you!</p>
+            <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link" color="maroon"><strong>Quit</strong></a> to exit the game. Thank you!</p>
         </div>`
 
         // alert("DING DING DING!! WELL DONE!")
@@ -462,12 +558,4 @@ async function checkCard(cardsArray, clicksArray){
 // setTimeout(checkCard, 5000000);
 
 
-
-function themeRickMorty(){
-
-}
-
-function themeVector(){
-
-}
 

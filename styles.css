@@ -2,18 +2,22 @@ body {
     padding-top: 0px;
     margin-top: 0px;
     display: block;
-    height: 100%;
+    height: 100vh;
   }
 
 #main {
   height: 100%;
-  padding: 30px 30px 20px 330px;
+  padding: 10px 0px 0px 300px;
   background-color: #f7f5f5;
   margin: 0px;
   border-style: solid;
   border-width: 0px 60px 0px 0px;
   border-color: #a1009c;
+  height: inherit;
+}
 
+#name-display, #move-counter {
+  margin: 10px 10px 10px 60px
 }
 /* <------------navbar section-------------> */
 .sidenav {
