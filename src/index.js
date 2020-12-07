@@ -3,8 +3,12 @@ const BOARDS_URL = "http://localhost:3000/boards"
 const deck = document.querySelector('#card-deck')
 const ICON_API = []
 const RM_API = []
-let easyArray = ["fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x"];
 
+let easyArray = ["fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x"]
+
+let mediumArray = ["fa fa-dizzy fa-3x", "fa fa-dizzy fa-3x","fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x"]
+
+let hardArray = ["fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-cowboy fa-3x", "fa fa-hat-cowboy fa-3x"]
 
 
 // Welcome page should only have username form and disabled board
@@ -133,6 +137,10 @@ function renderSideNav(event){
 
 
 function createBoard(settings){
+    const counter = document.getElementById('move-counter')
+    const alertDiv = document.getElementById('alert-section')
+    counter.innerHTML = " "
+    alertDiv.innerHTML = " "
     const game_difficulty = `${settings[0]}`
     const game_theme = `${settings[1]}`
 
@@ -147,17 +155,20 @@ function createBoard(settings){
                 {
                 "theme": game_theme,
                 "difficulty": game_difficulty,
-                "score": "0",
+                "moves": 0,
                 "user_id": currentUser.id
                 }
         )
       })
       .then(res => res.json())
       .then(boardData => {
-              console.log("BOARD CREATED")
-              console.log(boardData)
+        //   debugger
+          const moveCounter = document.createElement('h4')
+          moveCounter.innerText = `Moves: ${boardData.moves}`
+          const moveDiv = document.getElementById('move-counter')
+          moveDiv.appendChild(moveCounter)
+          currentBoard = boardData
         })
-
 
 }
 
@@ -192,8 +203,11 @@ function renderGame(ev, settings){
             break;
     }
     const btn = document.querySelector("#startPlay")
-    btn.innerText = 'Quit Game'
-    btn.style.backgroundColor = "#c50f21"
+    btn.innerText = 'Restart Game'
+    btn.style.backgroundColor = "#c405e6"
+    // btn.addEventListener('click', () => {
+    //     document.location.reload()
+    // })
     // console.log('rendered game')
 }
 
@@ -208,6 +222,16 @@ function easyGame(){
     deck.innerHTML = " "
     // loop over and make the same num of boxes/cards that was gone
     createCards(num)
+    const cardDiv = deck.querySelectorAll('.flip-card-back')
+
+    easyArray.sort(() => Math.random() - 0.6)
+    for(let b = 0;b < cardDiv.length; b+=1){
+        const icon = document.createElement('i')
+        cardDiv[b].appendChild(icon)
+        icon.setAttribute('class', easyArray[b])
+
+    }
+collectClicks()
 
 }
 
@@ -216,6 +240,17 @@ function mediumGame(){
     deck.style.width = "700px"
     deck.innerHTML = " "
     createCards(count)
+     // <<<<----------SELECTING ALL CARD-BACKS TO RENDER THE ICONS---------->>>>
+     const cardDiv = deck.querySelectorAll('.flip-card-back')
+
+     mediumArray.sort(() => Math.random() - 0.6)
+     for(let b = 0;b < cardDiv.length; b+=1){
+         const icon = document.createElement('i')
+         cardDiv[b].appendChild(icon)
+         icon.setAttribute('class', mediumArray[b])
+
+     }
+ collectClicks()
 }
 
 function hardGame(){
@@ -224,6 +259,17 @@ function hardGame(){
     deck.style.height = "485px"
     deck.innerHTML = " "
     createCards(count)
+
+    const cardDiv = deck.querySelectorAll('.flip-card-back')
+
+     hardArray.sort(() => Math.random() - 0.5)
+     for(let b = 0;b < cardDiv.length; b+=1){
+         const icon = document.createElement('i')
+         cardDiv[b].appendChild(icon)
+         icon.setAttribute('class', hardArray[b])
+
+     }
+ collectClicks()
 }
 
 function createCards(number){
@@ -234,6 +280,7 @@ function createCards(number){
         const frontCard = document.createElement('div')
         const backCard = document.createElement('div')
         container.setAttribute('class', 'flip-card-container')
+        // `flip-card-container-${i}`
         cardDiv.setAttribute('class', 'flip-card')
 
         frontCard.setAttribute('class', "flip-card-front")
@@ -283,51 +330,143 @@ function createCards(number){
 
 
 function themeDefault(){
-    // <<<<----------SELECTING ALL CARD-BACKS TO RENDER THE ICONS---------->>>>
-    const cardDiv = deck.querySelectorAll('.flip-card-back')
-    console.log(cardDiv)
+    deck.style.background = "linear-gradient(160deg,#0eabfc 0%, rgb(161 0 157) 100%)"
+    document.querySelectorAll('.flip-card-front').forEach(card => {
+        card.style.backgroundColor = '#f7d900cc'
+    })
 
-        easyArray.sort(() => Math.random() - 0.7)
-        for(let b = 0;b < cardDiv.length; b+=1){
-            const icon = document.createElement('i')
-            cardDiv[b].appendChild(icon)
-            icon.setAttribute('class', easyArray[b])
+}
 
-        }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+ }
 
-    // -------PUTTING EMPTY CONTAINERS FOR EVENTS AND CLASSES FOR CHECK IF MATCH
+function collectClicks(){
+
         const pair = []
         const clicks = []
-        deck.addEventListener('click', (e) => {
-    // -------ADDING LISTENER FOR CLICKS AND GETTING CLASS NAME TO PAIR THEM
-            console.log("A CARD HAS BEEN CLICKED #1")
-            pair.push(e.target.parentElement.querySelector('i').className) //Expecting array [<iconclass>,<iconclass>]
-            // clicks.push(e.target.closest('.flip-card-container').class = 'flip-card-container flip')<<< pushes e.targets to clicks array, to be carried over to another function
+        const containers = deck.querySelectorAll('.flip-card-container')
+        containers.forEach(square => {
+            square.addEventListener('click', (e) => {
+                pair.push(e.target.parentElement.querySelector('i').className) //Expecting array [<iconclass>,<iconclass>]
+                clicks.push(e.target)
 
-    // -------- DOING A CHECK FOR EVENTS IF USER CLICKED 2 CARDS
-            if (pair.length !== 2){
-                return pair
-            }else if (pair.length === 2){
-    //---------NEEDS TO DISABLE OTHER CARDS SO THAT USER CANT CLICK MORE THAN 2 BEFORE CHECKCARD FUNCTION
-                console.log("A CARD HAS BEEN CLICKED #2")
+                switch (pair.length) {
+                    case
+                        0:
+                        break;
+                    case
+                        1:
+                        console.log("-----CARD #1-----")
+                        break;
+                    case
+                        2:
+                        console.log("-----CARD #2-----")
 
-                checkCard(pair)
-                return
-            }
+                    checkCard(pair, clicks)
+                }
+            })
+
         })
 
-
 }
 
-function checkCard(arr){
-// ------- CHECK CARD CLASSES IF MATCH,
-//          Disable after animation?
-//--------- IF NOT, e.target.closest('.flip-card-container').class = 'flip-card-container flip' << in short flip it back
+async function checkCard(cardsArray, clicksArray){
+    await sleep(500);
+    console.log('finish wait time')
+
+    const theCards = document.querySelectorAll('.flip-card')
+
+    if (cardsArray[0] !== cardsArray[1]) {
+//<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>
+        clicksArray.forEach(target => {
+            target.parentNode.parentNode.className = "flip-card-container"
+            target.parentNode.parentNode.className = "flip-card-container"
+        })
+        currentBoard.moves+=1
+
+        let updatedData = {
+            "id": currentBoard.id,
+            "theme": currentBoard.theme,
+            "difficulty": currentBoard.difficulty,
+            "moves": currentBoard.moves,
+            "user_id": currentUser.id
+            }
+
+        fetch(BOARDS_URL + `/${currentBoard.id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(updatedData)
+          })
+          .then(res => res.json())
+          .then(newData => {
+
+            const move = document.getElementById('move-counter')
+            const h4Text = move.querySelector('h4')
+            h4Text.innerText = `Moves: ${newData.moves}`
+            move.appendChild(h4Text)
+          })
+
+    } else {
+//<<<<---------WILL ADD MOVES EVEN MATCHED---------->>>>>
+        console.log("MATCH MADE! SCORE!")
+
+        currentBoard.moves+=1
+
+        let updatedData = {
+            "id": currentBoard.id,
+            "theme": currentBoard.theme,
+            "difficulty": currentBoard.difficulty,
+            "moves": currentBoard.moves,
+            "user_id": currentUser.id
+            }
+
+        fetch(BOARDS_URL + `/${currentBoard.id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(updatedData)
+          })
+          .then(res => res.json())
+          .then(newData => {
+
+            const move = document.getElementById('move-counter')
+            const h4Text = move.querySelector('h4')
+            h4Text.innerText = `Moves: ${newData.moves}`
+            move.appendChild(h4Text)
+          })
+    }
+
+    if (deck.childElementCount === deck.querySelectorAll('.flip-card-container.flip').length) {
+        deck.style.pointerEvents = "none"
+        const alertDiv = document.getElementById('alert-section')
+        alertDiv.innerHTML= `
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Aww yeah, you successfully finish a round!</p>
+            <hr>
+            <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link"><strong>Quit</strong></a> to exit the game. Thank you!</p>
+        </div>`
+
+        // alert("DING DING DING!! WELL DONE!")
+
+     } else {
+        collectClicks()
+     }
 }
+// setTimeout(checkCard, 5000000);
+
+
 
 function themeRickMorty(){
 
 }
+
 function themeVector(){
 
 }
