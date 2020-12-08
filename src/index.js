@@ -3,12 +3,14 @@ const BOARDS_URL = "http://localhost:9292/boards"
 const deck = document.querySelector('#card-deck')
 const ICON_API = []
 const RM_API = []
+let currentBoard
+let currentUser
 
-let easyArray = ["fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x"]
+easyArray = ["fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-gifts fa-3x", "fa fa-glass-cheers fa-3x", "fa fa-holly-berry fa-3x", "fa fa-sleigh fa-3x"]
 
-let mediumArray = ["fa fa-dizzy fa-3x", "fa fa-dizzy fa-3x","fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x"]
+mediumArray = ["fa fa-dizzy fa-3x", "fa fa-dizzy fa-3x","fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x"]
 
-let hardArray = ["fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-cowboy fa-3x", "fa fa-hat-cowboy fa-3x"]
+hardArray = ["fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-cowboy fa-3x", "fa fa-hat-cowboy fa-3x"]
 
 
 // Welcome page should only have username form and disabled board
@@ -69,7 +71,10 @@ function renderSideNav(event){
         body: JSON.stringify(newData)
       })
       .then(res => res.json())
-      .then(data => currentUser = data)
+      .then(data => {
+        //   debugger
+          currentUser = data
+        })
 
     event.target.querySelector('input').setAttribute('disabled', " ")
     event.target.querySelector('#submitName').setAttribute('style',"display:none")
@@ -133,8 +138,33 @@ function renderSideNav(event){
     const nameText = document.createElement('h2')
     nameText.innerText = `${userName}`
     nameDiv.appendChild(nameText)
-}
 
+}
+// debugger
+function fetchPastScores(){
+
+    const listDiv = document.getElementById('score-container')
+    const div = document.createElement('div')
+    div.id = 'score-list'
+    const p = document.createElement('p')
+    p.innerText = "GAME HISTORY:"
+    div.appendChild(p)
+    listDiv.appendChild(div)
+    const pastScores = document.createElement('ul')
+    div.appendChild(pastScores)
+
+    // debugger
+    fetch(USERS_URL + '/' + `${currentUser.id}`)
+    .then(response => response.json())
+    .then(data => {
+
+       data.boards.forEach(game => {
+           const li = document.createElement('li')
+           li.innerHTML = `${game.theme} | ${game.difficulty}| MOVES:<strong>${game.moves}</strong>`
+           pastScores.append(li)
+       })
+    })
+}
 
 
 function createBoard(settings){
@@ -174,8 +204,12 @@ function createBoard(settings){
 
 }
 
+
 function renderGame(ev, settings){
     ev.preventDefault()
+    // const quitBtn = document.createElement('button')
+    // quitBtn.innerText = "Quit Game"
+
     switch (settings[0]) {
         case
             "easy":
@@ -238,9 +272,8 @@ function renderGame(ev, settings){
     const btn = document.querySelector("#startPlay")
     btn.innerText = 'Restart Game'
     btn.style.backgroundColor = "#c405e6"
-
+    fetchPastScores()
 }
-
 
 // <<<<<---------------- GAME DIFFICULTY FUNCTIONS ---------------->>>>>>>>>>
 
@@ -384,6 +417,7 @@ function createCards(number){
 
         }
     }
+    
 }
 
 
@@ -397,15 +431,17 @@ function themeDefault(){
 }
 
 function themeRickMorty(){
-    const main = document.querySelector('main')
-    main.style.backgroundColor = '#dff0f4'
-    main.style.borderColor = '#490244'
+    const cards = document.querySelectorAll('.flip-card')
+    cards.forEach(card => {
+        card.style.backgroundColor = 'rgba(250, 233, 53, 0.85)'
+    })
+    const main = document.getElementById('main')
+    main.style.backgroundColor = '#b9d0be'
+    const body = document.getElementById('main-doc')
+    body.style.backgroundColor = '#b9d0be'
+    main.style.borderColor = '#733ccc'
     deck.style.boxShadow = '12px 15px 20px 0 #28a745'
     deck.style.background = "linear-gradient(160deg,#0aa6ce, #9ac430 100%)"
-    document.querySelectorAll('.flip-card-front').forEach(card => {
-        card.style.backgroundColor = '#fae935d9'
-    })
-
 
 }
 
@@ -473,7 +509,7 @@ async function checkCard(cardsArray, clicksArray){
     const theCards = document.querySelectorAll('.flip-card')
 
     if (cardsArray[0] !== cardsArray[1]) {
-        
+
 //<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>
         clicksArray.forEach(target => {
             target.parentNode.parentNode.className = "flip-card-container"

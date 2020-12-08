@@ -2,19 +2,20 @@ body {
     padding-top: 0px;
     margin-top: 0px;
     display: block;
-    height: 100vh;
+    height: 100%;
   }
 
 #main {
-  height: 100%;
-  padding: 10px 0px 0px 300px;
+  height: 100vh;
+  padding: 50px 0px 0px 300px;
   background-color: #f7f5f5;
-  margin: 0px;
   border-style: solid;
   border-width: 0px 60px 0px 0px;
   border-color: #a1009c;
-  height: inherit;
+  
 }
+
+
 
 #name-display, #move-counter {
   margin: 10px 10px 10px 60px
@@ -22,7 +23,7 @@ body {
 /* <------------navbar section-------------> */
 .sidenav {
   height: 100%;
-  width: 300px;
+  width: 315px;
   /* padding-right; */
   position: fixed;
   z-index: 1;
@@ -30,12 +31,14 @@ body {
   left: 0;
   background-color: #00abfc;
   text-align: center;
+  overflow-y: scroll;
 }
 
 .sidenav header {
   padding: 6px 8px 6px 8px;
   text-decoration: none;
-  font-size: 130px;
+  height: 190px;
+  font-size: 140px;
   display: block;
   font-family: Nerko One;
   text-align:center;
@@ -48,9 +51,9 @@ input {
   border: none;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.5em;
+  line-height: 1em;
   padding: 0;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 #login {
   margin: auto;
@@ -157,7 +160,34 @@ input {
   background: #36a10c;
 }
 
-/* <------------game section-------------> */
+#score-list{
+  font-size: 12px;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 15px 20px 15px 20px;
+  width: 85%;
+  border-radius: 15px;
+  background: #282e33;
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #5c6269;
+}
+
+.sidenav ul {
+  display: block;
+  list-style-type: circle;
+  margin-block-start: 0;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 20px;
+  color: #fff;
+}
+
+.sidenav p {
+  color: #fff;
+}
+/* <------------------------game section------------------------> */
 
 
 .deck {
@@ -171,7 +201,7 @@ input {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 2em auto;
+  margin: 50px auto 50px auto;
   --webkit-perspective: 800;
 }
 
@@ -191,7 +221,7 @@ input {
   backface-visibility: hidden;
 
 }
-/* <<<<<--- CARDS FOR THE GAME ---->>>>> */
+/* <<<<<------------ CARDS FOR THE GAME ---------->>>>> */
 
 .flip-card-container {
   width: 105px;
@@ -233,7 +263,7 @@ input {
   color: #fff;
 }
 .flip-card-back {
-  background-color: #7d4263;
+  background-color: #673f96;
   color: #fff;
   transform: rotateY(180deg);
 }
