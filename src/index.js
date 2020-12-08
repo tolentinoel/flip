@@ -144,6 +144,7 @@ function renderSideNav(event){
 function fetchPastScores(){
 
     const listDiv = document.getElementById('score-container')
+    listDiv.innerHTML = " "
     const div = document.createElement('div')
     div.id = 'score-list'
     const p = document.createElement('p')
@@ -207,14 +208,25 @@ function createBoard(settings){
 
 function renderGame(ev, settings){
     ev.preventDefault()
-    // const quitBtn = document.createElement('button')
-    // quitBtn.innerText = "Quit Game"
+    const body = document.getElementById('main-doc')
+    const quitDiv = document.getElementById('quitArea')
+    quitDiv.innerHTML = " "
+    const quitBtn = document.createElement('button')
+    quitBtn.setAttribute('class', 'btn btn-btn-danger')
+    quitBtn.id = 'quitButton'
+    quitBtn.innerText = "Quit Game"
+    quitBtn.style.backgroundColor = "#e6054d"
+    quitDiv.appendChild(quitBtn)
+
+    quitBtn.addEventListener('click', () => {
+        document.location.reload()
+    })
 
     switch (settings[0]) {
         case
             "easy":
             let ezrm
-            console.log("BEGINNING OF EASY")
+
             if (settings[1] == 'default'){
                 themeDefault()
                 easyGame(easyArray)
@@ -229,7 +241,7 @@ function renderGame(ev, settings){
                 themeVector()
                 easyGame(newArr)
             }
-            console.log("END OF EASY")
+            // console.log("THEM BOARD CREATED!")
             // debugger
             break;
         case
@@ -417,7 +429,6 @@ function createCards(number){
 
         }
     }
-    
 }
 
 
@@ -431,29 +442,35 @@ function themeDefault(){
 }
 
 function themeRickMorty(){
-    const cards = document.querySelectorAll('.flip-card')
-    cards.forEach(card => {
-        card.style.backgroundColor = 'rgba(250, 233, 53, 0.85)'
-    })
+    // const cards = document.querySelectorAll('.flip-card')
+    // cards.forEach(card => {
+    //     card.style.backgroundColor = 'rgba(250, 233, 53, 0.85)'
+    // })
     const main = document.getElementById('main')
     main.style.backgroundColor = '#b9d0be'
+    main.style.borderColor = '#733ccc'
+
     const body = document.getElementById('main-doc')
     body.style.backgroundColor = '#b9d0be'
-    main.style.borderColor = '#733ccc'
+
     deck.style.boxShadow = '12px 15px 20px 0 #28a745'
     deck.style.background = "linear-gradient(160deg,#0aa6ce, #9ac430 100%)"
 
 }
 
 function themeVector(){
-    const main = document.querySelector('main')
-    main.style.backgroundColor = '#f2d1ff'
-    main.style.borderColor = '#4b2b48'
-    deck.style.boxShadow = '#055365 12px 15px 20px 0px'
-    deck.style.background = "linear-gradient(160deg, rgb(27 54 81), rgb(222 211 229) 100%);"
-    document.querySelectorAll('.flip-card-front').forEach(card => {
-        card.style.backgroundColor = '#889d32'
-    })
+    const main = document.getElementById('main')
+    main.style.backgroundColor = "#d0ca9b"
+    main.style.borderColor = '#709032'
+
+    const body = document.getElementById('main-doc')
+    body.style.backgroundColor = "#d0ca9b"
+
+    deck.style.boxShadow = '11px 7px 17px 3px rgb(56 19 144 / 80%)'
+    deck.style.background = "linear-gradient(160deg,#05040b 0%, rgb(188 66 249) 100%"
+    // document.querySelectorAll('.flip-card-front').forEach(card => {
+    //     card.style.backgroundColor = '#889d32'
+    // })
 }
 
 

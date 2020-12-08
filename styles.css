@@ -7,7 +7,7 @@ body {
 
 #main {
   height: 100vh;
-  padding: 50px 0px 0px 300px;
+  padding: 50px 0px 0px 350px;
   background-color: #f7f5f5;
   border-style: solid;
   border-width: 0px 60px 0px 0px;
@@ -18,7 +18,7 @@ body {
 
 
 #name-display, #move-counter {
-  margin: 10px 10px 10px 60px
+  margin: 10px 10px 10px 25px
 }
 /* <------------navbar section-------------> */
 .sidenav {
@@ -108,7 +108,6 @@ input {
 }
 
 
-
 #options div{
   line-height: 2em;
 }
@@ -188,7 +187,11 @@ input {
   color: #fff;
 }
 /* <------------------------game section------------------------> */
-
+.quitButton {
+  display: flex;
+  margin-right: 180px;
+  margin-top: 30px;
+}
 
 .deck {
   width: 485px;
@@ -231,7 +234,6 @@ input {
   border-radius: 21px;
   cursor: pointer;
   display: flex;
-  
 }
 .flip-card {
   position: relative;
@@ -246,7 +248,7 @@ input {
 }
 /* Position the front and back side */
 .flip-card-front, .flip-card-back {
-  box-shadow:  3px 5px 9px 1px rgba(105, 94, 94, 0.692);
+  box-shadow:  3px 5px 9px 1px #463f3fc4;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -259,11 +261,16 @@ input {
   /* border-radius: 0.5rem; */
 }
 .flip-card-front {
-  background-color:#ffc107;
+  background-color:#bdc00f;
   color: #fff;
 }
+
+.flip-card-front .rick-morty-theme {
+  background-color: rgba(250, 233, 53, 0.85);
+}
+
 .flip-card-back {
-  background-color: #673f96;
+  background-color: #2e2233;
   color: #fff;
   transform: rotateY(180deg);
 }
