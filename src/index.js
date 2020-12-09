@@ -10,7 +10,7 @@ easyArray = ["fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x"
 
 mediumArray = ["fa fa-dizzy fa-3x", "fa fa-dizzy fa-3x","fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x"]
 
-hardArray = ["fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-cowboy fa-3x", "fa fa-hat-cowboy fa-3x"]
+hardArray = ["fa fa-flushed fa-3x", "fa fa-flushed fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-grin-tongue fa-3x", "fa fa-sad-cry fa-3x", "fa fa-sad-cry fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x","fa fa-laugh fa-3x","fa fa-grimace fa-3x", "fa fa-kiss fa-3x","fa fa-kiss fa-3x","fa fa-grin-stars fa-3x","fa fa-grin-stars fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-baby fa-3x", "fa fa-user-circle fa-3x", "fa fa-user-secret fa-3x", "fa fa-poo fa-3x", "fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x","fa fa-camera fa-3x","fa fa-candy-cane fa-3x", "fa fa-carrot fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-wizard fa-3x", "fa fa-hat-cowboy fa-3x", "fa fa-hat-cowboy fa-3x", "fa fa-dizzy fa-3x", "fa fa-dizzy fa-3x", "fa fa-cookie-bite fa-3x", "fa fa-cookie-bite fa-3x"]
 
 
 // Welcome page should only have username form and disabled board
@@ -32,11 +32,12 @@ function fetchIcons(){
     fetch("https://api.iconfinder.com/v2/icons/search?query=fantasy")
     .then(response => response.json())
     .then(data => {
-        data.icons.forEach(obj => {
+        // debugger
+        data.icons.slice(0, 25).forEach(obj => {
             ICON_API.push(obj.raster_sizes[6].formats[0].preview_url)
         })
     })
-    ICON_API.slice(0, 20)
+
 }
 // debugger
 function fetchRickMorty(){
@@ -116,6 +117,7 @@ function renderSideNav(event){
     <button type="submit" class="btn btn-success" id="startPlay">Click to Play!</button>`
 
     const radios = document.querySelectorAll("input[type='radio']")
+    // radios.removeAttribute('disabled')
     radios.forEach(radio => {
         radio.addEventListener('change', () => {
 
@@ -129,13 +131,17 @@ function renderSideNav(event){
                 playBtn.addEventListener('click', (ev) => {
                     renderGame(ev, enabledSettings)
                     createBoard(enabledSettings)
+
+                    // document.querySelectorAll('input','type=radio')
                 })
             }
         })
     })
+
     let userName = document.querySelector('input','type=text').value
     const nameDiv = document.getElementById('name-display')
     const nameText = document.createElement('h2')
+    nameText.setAttribute('class','animate__animated animate__bounceInLeft')
     nameText.innerText = `${userName}`
     nameDiv.appendChild(nameText)
 
@@ -169,6 +175,7 @@ function fetchPastScores(){
 
 
 function createBoard(settings){
+
     const counter = document.getElementById('move-counter')
     const alertDiv = document.getElementById('alert-section')
     counter.innerHTML = " "
@@ -196,11 +203,22 @@ function createBoard(settings){
       .then(res => res.json())
       .then(boardData => {
         //   debugger
-          const moveCounter = document.createElement('h4')
-          moveCounter.innerText = `Moves: ${boardData.moves}`
-          const moveDiv = document.getElementById('move-counter')
-          moveDiv.appendChild(moveCounter)
-          currentBoard = boardData
+            const moveCounter = document.createElement('h4')
+            moveCounter.innerText = `Moves: ${boardData.moves}`
+            // moveCounter.setAttribute('class','animate__animated animate__bounceInLeft')
+            const moveDiv = document.getElementById('move-counter')
+            moveDiv.appendChild(moveCounter)
+            currentBoard = boardData
+            const radios = document.querySelectorAll("input[type='radio']")
+            radios.forEach(dot => {
+                dot.setAttribute('disabled', ' ')
+            const allCards = document.querySelectorAll('.flip-card-front')
+                allCards.forEach(target => {
+                    target.style.pointerEvents = "auto"
+                })
+            }) //disabling radio buttons when user clicks startPlay
+
+
         })
 
 }
@@ -269,12 +287,12 @@ function renderGame(ev, settings){
                 themeDefault()
                 hardGame(hardArray)
             } else if (settings[1] == 'rickMorty'){
-                hardrm = RM_API
+                hardrm = RM_API.slice(0, 18)
                 const newArr = hardrm.concat(hardrm)
                 themeRickMorty()
                 hardGame(newArr)
             } else {
-                hardrm = ICON_API
+                hardrm = ICON_API.slice(0, 18)
                 const newArr = hardrm.concat(hardrm)
                 themeVector()
                 hardGame(newArr)
@@ -301,7 +319,8 @@ function easyGame(arr){
 
     arr.sort(() => Math.random() - 0.6)
     for(let b = 0;b < cardDiv.length; b+=1){
-        if(arr[0].length > 20) {
+        if(arr[0].length > 25) {
+            // debugger
             const icon = document.createElement('img')
             cardDiv[b].appendChild(icon)
             icon.setAttribute('src', arr[b])
@@ -330,7 +349,7 @@ function mediumGame(mediumArr){
 
      mediumArr.sort(() => Math.random() - 0.6)
      for(let b = 0;b < cardDiv.length; b+=1){
-        if(mediumArr[0].length > 20) {
+        if(mediumArr[0].length > 25) {
             const icon = document.createElement('img')
             cardDiv[b].appendChild(icon)
             icon.setAttribute('src', mediumArr[b])
@@ -355,10 +374,10 @@ function hardGame(hArray){
     createCards(count)
 
     const cardDiv = deck.querySelectorAll('.flip-card-back')
-
+    // debugger
      hArray.sort(() => Math.random() - 0.5)
      for(let b = 0;b < cardDiv.length; b+=1){
-        if (hArray[0].length > 20) {
+        if (hArray[0].length > 25) {
             const icon = document.createElement('img')
             cardDiv[b].appendChild(icon)
             icon.setAttribute('src', hArray[b])
@@ -429,6 +448,7 @@ function createCards(number){
 
         }
     }
+
 }
 
 
@@ -447,11 +467,11 @@ function themeRickMorty(){
     //     card.style.backgroundColor = 'rgba(250, 233, 53, 0.85)'
     // })
     const main = document.getElementById('main')
-    main.style.backgroundColor = '#b9d0be'
+    main.style.backgroundColor = '#c9dfce'
     main.style.borderColor = '#733ccc'
 
     const body = document.getElementById('main-doc')
-    body.style.backgroundColor = '#b9d0be'
+    body.style.backgroundColor = '#c9dfce'
 
     deck.style.boxShadow = '12px 15px 20px 0 #28a745'
     deck.style.background = "linear-gradient(160deg,#0aa6ce, #9ac430 100%)"
@@ -460,11 +480,11 @@ function themeRickMorty(){
 
 function themeVector(){
     const main = document.getElementById('main')
-    main.style.backgroundColor = "#d0ca9b"
+    main.style.backgroundColor = "#d1cfe4"
     main.style.borderColor = '#709032'
 
     const body = document.getElementById('main-doc')
-    body.style.backgroundColor = "#d0ca9b"
+    body.style.backgroundColor = "#d1cfe4"
 
     deck.style.boxShadow = '11px 7px 17px 3px rgb(56 19 144 / 80%)'
     deck.style.background = "linear-gradient(160deg,#05040b 0%, rgb(188 66 249) 100%"
@@ -561,7 +581,13 @@ async function checkCard(cardsArray, clicksArray){
 
     } else {
 //<<<<---------WILL ADD MOVES EVEN MATCHED---------->>>>>
+
         console.log("MATCH MADE! SCORE!")
+        // debugger
+        clicksArray.forEach(target => {
+            target.parentNode.parentNode.style.pointerEvents = "none"
+            target.parentNode.parentNode.style.pointerEvents = "none"
+        })
 
         currentBoard.moves+=1
 
@@ -597,18 +623,25 @@ async function checkCard(cardsArray, clicksArray){
         alertDiv.innerHTML= `
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Well done!</h4>
-            <p>Aww yeah, you successfully finish a round! YOU GOT ${100 - currentBoard.moves}!</p>
+            <p>Aww yeah, you successfully finish a round! Finished within ${currentBoard.moves}!</p>
             <hr>
             <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link" color="maroon"><strong>Quit</strong></a> to exit the game. Thank you!</p>
         </div>`
 
-        // alert("DING DING DING!! WELL DONE!")
 
      } else {
         collectClicks()
      }
 }
 // setTimeout(checkCard, 5000000);
+function removeDisable(){
 
+
+        // alert("DING DING DING!! WELL DONE!")
+    const radios = document.querySelectorAll("input[type='radio']")
+        radios.forEach(dot => {
+            dot.removeAttribute('disabled')
+        }) //disabling radio buttons when user clicks startPlay
+}
 
 
