@@ -23,5 +23,7 @@ WELCOME TO FLIP!
     -RickandMorty API
 ### Screenshots
 
+<!-- ![App Wireframe](https://github.com/tolentinoel/splashglam_frontend/blob/main/src/screenshots/LightMode_home.png) -->
+
 Enjoy playing!
 # flip-frontend
