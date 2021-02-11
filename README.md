@@ -1,6 +1,6 @@
 
-# README
-WELCOME TO FLIP!
+
+# WELCOME TO FLIP!
 
 ### Tech used:
     * ruby '2.6.1'
