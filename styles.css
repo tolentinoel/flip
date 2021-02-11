@@ -19,16 +19,16 @@ body {
 
 .alert-success {
   border-radius: 20px;
+  border: solid;
   color: #155724;
   background-color: #d4edda;
-  border-color: #c3e6cb;
+  border-color: #fffc00;
 }
 
 #alert-section{
   display: flex;
   float: right;
-  /* right: 5%;
-  top: 3%; */
+  margin-right: 4%;
 }
 
 #name-display, #move-counter {
@@ -38,7 +38,6 @@ body {
 .sidenav {
   height: 100%;
   width: 315px;
-  /* padding-right; */
   position: fixed;
   z-index: 1;
   top: 0;
@@ -46,10 +45,11 @@ body {
   background-color: #00abfc;
   text-align: center;
   overflow-y: scroll;
+  padding-bottom: 25px;
 }
 
 .sidenav header {
-  padding: 6px 8px 6px 8px;
+  padding: 0px 8px 6px 8px;
   text-decoration: none;
   height: 190px;
   font-size: 140px;
