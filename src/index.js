@@ -487,7 +487,7 @@ function themeVector(){
     body.style.backgroundColor = "#d1cfe4"
 
     deck.style.boxShadow = '11px 7px 17px 3px rgb(56 19 144 / 80%)'
-    deck.style.background = "linear-gradient(160deg,#05040b 0%, rgb(188 66 249) 100%"
+    deck.style.background = "linear-gradient(160deg, rgb(195 171 47) 0%, rgb(9 39 2) 100%)"
     // document.querySelectorAll('.flip-card-front').forEach(card => {
     //     card.style.backgroundColor = '#889d32'
     // })
@@ -623,7 +623,7 @@ async function checkCard(cardsArray, clicksArray){
         alertDiv.innerHTML= `
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Well done!</h4>
-            <p>Aww yeah, you successfully finish a round! Finished within ${currentBoard.moves}!</p>
+            <p>Aww yeah, you successfully finish a round! Finished within ${currentBoard.moves} moves!</p>
             <hr>
             <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link" color="maroon"><strong>Quit</strong></a> to exit the game. Thank you!</p>
         </div>`

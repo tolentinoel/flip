@@ -8,8 +8,8 @@ body {
   padding-top: 50px;
 }
 #main {
-  height: 115vh;
-  padding: 30px 0px 0px 350px;
+  height: 100vh;
+  padding: 20px 0px 35px 350px;
   background-color: #fff;
   border-style: solid;
   border-width: 0px 60px 0px 0px;
@@ -17,14 +17,22 @@ body {
   
 }
 
-#alert alert-success {
-  width: fit-content;
-  height: fit-content;
-  line-height: 7px;
+.alert-success {
+  border-radius: 20px;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+#alert-section{
+  display: flex;
+  float: right;
+  /* right: 5%;
+  top: 3%; */
 }
 
 #name-display, #move-counter {
-  margin: 10px 10px 10px 25px
+  margin: 10px 10px 10px 5%;
 }
 /* <------------navbar section-------------> */
 .sidenav {
@@ -51,7 +59,6 @@ body {
   text-shadow: 0 -1px 0 #fff, 0 -1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 8px 0 #1e1e1e, 0 5px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 9px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 10px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
   color: #bdea06;
   }
-
 
 input {
   border: none;
@@ -193,6 +200,10 @@ input {
   color: #fff;
 }
 /* <------------------------game section------------------------> */
+#quitArea {
+  margin: 10px 10px 10px 5%;
+}
+
 .quitButton {
   display: flex;
   margin-right: 180px;
@@ -277,7 +288,7 @@ input {
 }
 
 .flip-card-back {
-  background-color: #2e2233;
+  background-color: #054360;
   color: #fff;
   transform: rotateY(180deg);
 }
