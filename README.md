@@ -25,10 +25,15 @@ WELCOME TO FLIP!
     -RickandMorty API
 
 ### Screenshots
+App wireframe using Draw.io
 ![App wireframe using Draw.io](https://github.com/tolentinoel/flip-frontend/blob/main/images/phase3_wireframe.jpg)
+Gameplay on Hard difficulty & Vector theme
 ![Gameplay on Hard difficulty & Vector theme](https://github.com/tolentinoel/flip-frontend/blob/main/images/phase3_flip.jpg)
+Gameplay on Medium difficulty with Rick & Morty theme
 ![Gameplay on Medium difficulty with Rick & Morty theme](https://github.com/tolentinoel/flip-frontend/blob/main/images/rickMorty_medium.png)
+Gameplay on Hard difficulty with default theme
 ![Gameplay on Hard difficulty with default theme](https://github.com/tolentinoel/flip-frontend/blob/main/images/default_hard.png)
+Gameplay on Medium difficulty with Vector theme
 ![Gameplay on Medium difficulty with Vector theme](https://github.com/tolentinoel/flip-frontend/blob/main/images/vector_medium.png)
 
 
