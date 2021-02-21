@@ -1,0 +1,315 @@
+body {
+    padding-top: 0px;
+    margin-top: 0px;
+    display: block;
+    height: 100%;
+  }
+#main-doc {
+  padding-top: 50px;
+}
+#main {
+  height: 100vh;
+  padding: 20px 0px 35px 350px;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 0px 60px 0px 0px;
+  border-color: #a1009c;
+  
+}
+
+.alert-success {
+  border-radius: 20px;
+  border: solid;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #fffc00;
+}
+
+#alert-section{
+  display: flex;
+  float: right;
+  margin-right: 4%;
+}
+
+#name-display, #move-counter {
+  margin: 10px 10px 10px 5%;
+}
+/* <------------navbar section-------------> */
+.sidenav {
+  height: 100%;
+  width: 315px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #00abfc;
+  text-align: center;
+  overflow-y: scroll;
+  padding-bottom: 25px;
+}
+
+.sidenav header {
+  padding: 0px 8px 6px 8px;
+  text-decoration: none;
+  height: 190px;
+  font-size: 140px;
+  display: block;
+  font-family: Nerko One;
+  text-align:center;
+  text-shadow: 0 -1px 0 #fff, 0 -1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 8px 0 #1e1e1e, 0 5px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 9px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 10px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
+  color: #bdea06;
+  }
+
+input {
+  border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1em;
+  padding: 0;
+  /* -webkit-appearance: none; */
+}
+#login {
+  margin: auto;
+  width: 80%;
+}
+
+#login form {
+  padding: 22px 22px 22px 22px;
+  width: 100%;
+  border-radius: 20px;
+  background: #282e33;
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #5c6269;
+}
+
+#login form span {
+  background-color: #363b41;
+  border-radius: 10px;;
+  border-right: 3px solid #434a52;
+  color: #606468;
+  display: block;
+  float: left;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+#login form input[type="text"] {
+  background-color: #3b4148;
+  border-radius: 10px;
+  color: #a9a9a9;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 100%;
+  height: 50px;
+}
+
+
+#login form input[type="submit"] {
+  background:#a8d202;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+#login form input[type="submit"]:hover {
+  background: #36a10c;
+}
+
+
+#options div{
+  line-height: 2em;
+}
+
+#difDiv{
+  margin: 10px 0px 10px 0px;
+  line-height: 1.5em;
+}
+#difDiv label{
+  color: #c304e6;
+  font-family: Nerko One;
+  font-size: 25px;
+  text-shadow: 2px 2px 1px #101215;
+}
+
+#radioDiv{
+  margin: 10px 0px 10px 0px;
+  line-height: 1.5em;
+}
+
+#radioDiv p{
+
+  color: #f7f6f6;
+  font-family: Nerko One;
+  font-size: 35px;
+  text-shadow: 2px 2px 1px #769a25;
+  margin-bottom: 0;
+}
+
+#radioDiv label{
+  color: #ff7b07;
+  font-family: Nerko One;
+  font-size: 25px;
+  text-shadow: 2px 2px 1px #101215;
+}
+
+#startPlay{
+  background:#a8d202;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+#startPlay:hover{
+  background: #36a10c;
+}
+
+#score-list{
+  font-size: 12px;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 15px 20px 15px 20px;
+  width: 85%;
+  border-radius: 15px;
+  background: #282e33;
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #5c6269;
+}
+
+.sidenav ul {
+  display: block;
+  list-style-type: circle;
+  margin-block-start: 0;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 20px;
+  color: #fff;
+}
+
+.sidenav p {
+  color: #fff;
+}
+/* <------------------------game section------------------------> */
+#quitArea {
+  margin: 10px 10px 10px 5%;
+}
+
+.quitButton {
+  display: flex;
+  margin-right: 180px;
+  margin-top: 30px;
+  background-color: #c405e6;
+}
+
+.deck {
+  width: 485px;
+  height: 485px;
+  background: linear-gradient(160deg,#00a192 0%, rgba(219, 241, 92, 0.555) 100%);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 12px 15px 20px 0 rgba(73, 71, 46, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 35px auto 50px auto;
+  --webkit-perspective: 800;
+}
+
+.deck .card {
+  height: 23%;
+  width: 23%;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background: rgba(73, 64, 46, 0.9);
+  color: #ffffff;
+  border-radius: 21px;
+  cursor: pointer;
+  display: flex;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+}
+/* <<<<<------------ CARDS FOR THE GAME ---------->>>>> */
+
+.flip-card-container {
+  width: 105px;
+  height: 105px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  perspective: 800px;
+  border-radius: 21px;
+  cursor: pointer;
+  display: flex;
+}
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  transition: transform .4s;
+  transform-style: preserve-3d;
+}
+.flip-card-container.flip .flip-card {
+  transform: rotateY(180deg); /* <=>  rotateY(.5turn) */
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  box-shadow:  3px 5px 9px 1px #663260;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 0.5rem; */
+}
+.flip-card-front {
+  background-color:#b7de15;
+  color: #fff;
+}
+
+.flip-card-front .rick-morty-theme {
+  background-color: #b7de15;
+}
+
+.flip-card-back {
+  background-color: #054360;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  /* border-radius: 0.5rem; */
+}
+.flip-card-back p {
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5rem;
+}
+.flip-card-back p span {
+  display: block;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 1.25rem;
+}
+
+
