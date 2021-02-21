@@ -1,5 +1,5 @@
-const USERS_URL ="http://localhost:3000/users"
-const BOARDS_URL = "http://localhost:3000/boards"
+const USERS_URL ="https://flipmemorygame.herokuapp.com/users"
+const BOARDS_URL = "https://flipmemorygame.herokuapp.com/boards"
 const deck = document.querySelector('#card-deck')
 const ICON_API = []
 const RM_API = []
