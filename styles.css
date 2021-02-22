@@ -2,21 +2,21 @@ body {
     padding-top: 0px;
     margin-top: 0px;
     display: block;
-    /* height: 100%; */
-    height: 60rem;
+    height: 100%;
+    /* height: 60rem; */
   }
 #main-doc {
   padding-top: 50px;
 }
 #main {
-  /* height: 100vh; */
-  height: 100%;
+  height: 100vh;
+  /* height: 100%; */
   padding: 20px 0px 35px 350px;
   background-color: #fff;
   border-style: solid;
   border-width: 0px 60px 0px 0px;
   border-color: #a1009c;
-  
+
 }
 
 .alert-success {
@@ -42,8 +42,8 @@ body {
 }
 /* <------------navbar section-------------> */
 .sidenav {
-  /* height: 100%; */
-  height: 60rem;
+  height: 100%;
+  /* height: 60rem; */
   width: 300px;
   position: fixed;
   z-index: 1;
@@ -321,8 +321,108 @@ input {
 }
 
 
-@media screen and (min-width: 370px) {
+/* @media screen and (min-width: 370px) {
   body {
     background-color: lightgreen;
   }
+} */
+
+/* ---------------ICONS FOR SOCIAL MEDIA ACCOUNTS ----------- */
+
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
+#icons {
+  display: grid;
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
+}
+
+a.btn-social, .btn-social{
+  border-radius: 50%;
+  color: #ffffff !important;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  margin: 8px 4px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .3s;
+  width: 50px;
+}
+
+.btn-social .fa,.btn-social i {
+  backface-visibility: hidden;
+  transform: scale(1);
+  transition: all .25s;
+
+}
+
+.btn-social:hover,.btn-social:focus {
+  color: rgb(255, 255, 255);
+  outline: none;
+  text-decoration: none;
+  border-color: rgb(241, 236, 236);
+  border-style: groove;
+  border-width: 1px;
+}
+
+.btn-social:hover .fa,.btn-social:focus .fa,.btn-social:hover i,.btn-social:focus i {
+  transform: scale(1.3);
+  border-style: groove;
+  border-width: 1px;
+  outline: none;
+}
+
+.btn-social.btn-xs {
+  font-size: 9px;
+  height: 24px;
+  line-height: 13px;
+  margin: 6px 2px;
+  width: 24px;
+}
+
+.btn-social.btn-sm {
+  font-size: 13px;
+  height: 36px;
+  line-height: 18px;
+  margin: 6px 2px;
+  width: 36px;
+}
+
+.btn-social.btn-lg {
+  font-size: 22px;
+  height: 72px;
+  line-height: 40px;
+  margin: 10px 6px;
+  width: 72px;
+}
+
+.btn-facebook {
+  background-color: #1877f2;
+}
+.btn-facebook:hover {
+  background-color: #3b5998;
+}
+
+.btn-linkedin {
+  background-color: #000000;
+}
+.btn-linkedin:hover {
+  background-color: #0a66c2;
+}
+
+.btn-instagram {
+  background-color: #c32aa3;
+}
+.btn-instagram:hover {
+  background-color: #7232bd;
+}
+
+.btn-email {
+  background-color: #34a853;
+}
+.btn-email:hover {
+  background-color: #075e54;
 }
