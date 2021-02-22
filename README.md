@@ -2,12 +2,18 @@
 
 # WELCOME TO FLIP!
 
+##Live App Demo - https://tolentinoel.github.io/flip-frontend/
+
+See below for information before cloning:
+
 ### Tech used:
     * ruby '2.6.1'
-    * SQLite3
+    * PostgreSQL
     * CSS
     * HTML5
     * JavaScript
+    * Heroku
+    * Github Pages
 
 ### Back-end
     Please refer to `https://github.com/tolentinoel/flip-backend`, go to the flip-backend directory and  link the database by running `rails db:migrate` and `rails db:seed` upon opening the file. Don't forget to run `bundle` or `bundle update` to make sure you have all the dependencies and gems needed(specifically 'rack-cors').
