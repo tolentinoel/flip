@@ -3,20 +3,19 @@ body {
     margin-top: 0px;
     display: block;
     height: 100%;
-    /* height: 60rem; */
-  }
-#main-doc {
-  padding-top: 50px;
 }
+
+#main-doc {
+  padding-top: 15%;
+}
+
 #main {
   height: 100vh;
-  /* height: 100%; */
-  padding: 20px 0px 35px 350px;
+  padding: 20px 0px 35px 20%;
   background-color: #fff;
   border-style: solid;
   border-width: 0px 60px 0px 0px;
   border-color: #a1009c;
-
 }
 
 .alert-success {
@@ -33,17 +32,16 @@ body {
   display: flex;
   line-height: normal;
   top: 0;
-  /* float: center; */
   margin-right: 4%;
 }
 
 #name-display, #move-counter {
   margin: 10px 10px 10px 5%;
 }
+
 /* <------------navbar section-------------> */
 .sidenav {
   height: 100%;
-  /* height: 60rem; */
   width: 300px;
   position: fixed;
   z-index: 1;
@@ -73,8 +71,8 @@ input {
   font-size: 16px;
   line-height: 1em;
   padding: 0;
-  /* -webkit-appearance: none; */
 }
+
 #login {
   margin: auto;
   width: 80%;
@@ -123,10 +121,10 @@ input {
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
+
 #login form input[type="submit"]:hover {
   background: #36a10c;
 }
-
 
 #options div{
   line-height: 2em;
@@ -136,6 +134,7 @@ input {
   margin: 10px 0px 10px 0px;
   line-height: 1.5em;
 }
+
 #difDiv label{
   color: #c304e6;
   font-family: Nerko One;
@@ -206,6 +205,7 @@ input {
 .sidenav p {
   color: #fff;
 }
+
 /* <------------------------game section------------------------> */
 #quitArea {
   margin: 10px 10px 10px 5%;
@@ -230,7 +230,6 @@ input {
   justify-content: center;
   align-items: center;
   margin: 1% auto 2% auto;
-  /* margin: 35px auto 50px auto; */
   --webkit-perspective: 800;
 }
 
@@ -250,6 +249,7 @@ input {
   backface-visibility: hidden;
 
 }
+
 /* <<<<<------------ CARDS FOR THE GAME ---------->>>>> */
 
 .flip-card-container {
@@ -261,6 +261,7 @@ input {
   cursor: pointer;
   display: flex;
 }
+
 .flip-card {
   position: relative;
   width: 100%;
@@ -269,9 +270,11 @@ input {
   transition: transform .4s;
   transform-style: preserve-3d;
 }
+
 .flip-card-container.flip .flip-card {
-  transform: rotateY(180deg); /* <=>  rotateY(.5turn) */
+  transform: rotateY(180deg); 
 }
+
 /* Position the front and back side */
 .flip-card-front, .flip-card-back {
   box-shadow:  3px 5px 9px 1px #663260;
@@ -284,8 +287,9 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-radius: 0.5rem; */
+ 
 }
+
 .flip-card-front {
   background-color:#b7de15;
   color: #fff;
@@ -335,7 +339,7 @@ input {
 #icons {
   display: grid;
   position: absolute;
-  bottom: 15px;
+  bottom: 4%;
   right: 0px;
 }
 
@@ -345,7 +349,7 @@ a.btn-social, .btn-social{
   display: inline-block;
   height: 50px;
   line-height: 50px;
-  margin: 8px 4px;
+  margin: 16px 5px;
   text-align: center;
   text-decoration: none;
   transition: background-color .3s;
@@ -400,29 +404,37 @@ a.btn-social, .btn-social{
 }
 
 .btn-facebook {
-  background-color: #1877f2;
+  background-color: #034294;
 }
 .btn-facebook:hover {
   background-color: #3b5998;
 }
 
 .btn-linkedin {
-  background-color: #000000;
+  background-color: #1b1d58;
 }
 .btn-linkedin:hover {
-  background-color: #0a66c2;
+  background-color: #0552a5;
 }
 
 .btn-instagram {
-  background-color: #c32aa3;
+  background-color: #d331b0;
 }
 .btn-instagram:hover {
-  background-color: #7232bd;
+  background-color: #be71c5;
 }
 
-.btn-email {
-  background-color: #34a853;
+.btn-codepen {
+  background-color: #444444;
+
 }
-.btn-email:hover {
-  background-color: #075e54;
+.btn-codepen:hover {
+  background-color: #9ba5a8;
+}
+
+.btn-dev {
+  background-color: #080b0f;
+}
+.btn-dev:hover {
+  background-color: #2e3138;
 }
