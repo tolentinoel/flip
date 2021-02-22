@@ -26,8 +26,12 @@ body {
 }
 
 #alert-section{
+  position: absolute;
+  z-index: 1;
   display: flex;
-  float: right;
+  line-height: normal;
+  top: 0;
+  /* float: center; */
   margin-right: 4%;
 }
 
@@ -222,7 +226,8 @@ input {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 35px auto 50px auto;
+  margin: 1% auto 2% auto;
+  /* margin: 35px auto 50px auto; */
   --webkit-perspective: 800;
 }
 
@@ -313,3 +318,8 @@ input {
 }
 
 
+@media screen and (min-width: 370px) {
+  body {
+    background-color: lightgreen;
+  }
+}
