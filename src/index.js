@@ -132,7 +132,6 @@ function renderSideNav(event){
                     renderGame(ev, enabledSettings)
                     createBoard(enabledSettings)
 
-                    // document.querySelectorAll('input','type=radio')
                 })
             }
         })
@@ -146,7 +145,7 @@ function renderSideNav(event){
     nameDiv.appendChild(nameText)
 
 }
-// debugger
+
 function fetchPastScores(){
 
     const listDiv = document.getElementById('score-container')
@@ -259,8 +258,7 @@ function renderGame(ev, settings){
                 themeVector()
                 easyGame(newArr)
             }
-            // console.log("THEM BOARD CREATED!")
-            // debugger
+
             break;
         case
             "medium":
@@ -374,7 +372,7 @@ function hardGame(hArray){
     createCards(count)
 
     const cardDiv = deck.querySelectorAll('.flip-card-back')
-    // debugger
+
      hArray.sort(() => Math.random() - 0.5)
      for(let b = 0;b < cardDiv.length; b+=1){
         if (hArray[0].length > 25) {
@@ -403,7 +401,6 @@ function createCards(number){
         const frontCard = document.createElement('div')
         const backCard = document.createElement('div')
         container.setAttribute('class', 'flip-card-container')
-        // `flip-card-container-${i}`
         cardDiv.setAttribute('class', 'flip-card')
 
         frontCard.setAttribute('class', "flip-card-front")
@@ -462,10 +459,7 @@ function themeDefault(){
 }
 
 function themeRickMorty(){
-    // const cards = document.querySelectorAll('.flip-card')
-    // cards.forEach(card => {
-    //     card.style.backgroundColor = 'rgba(250, 233, 53, 0.85)'
-    // })
+
     const main = document.getElementById('main')
     main.style.backgroundColor = '#c9dfce'
     main.style.borderColor = '#733ccc'
@@ -488,11 +482,8 @@ function themeVector(){
 
     deck.style.boxShadow = '11px 7px 17px 3px rgb(56 19 144 / 80%)'
     deck.style.background = "linear-gradient(160deg, rgb(195 171 47) 0%, rgb(9 39 2) 100%)"
-    // document.querySelectorAll('.flip-card-front').forEach(card => {
-    //     card.style.backgroundColor = '#889d32'
-    // })
-}
 
+}
 
 
 function sleep(ms) {
@@ -508,7 +499,7 @@ function collectClicks(){
 
         containers.forEach(square => {
             square.addEventListener('click', (e) => {
-                // debugger
+
                 if (e.target.parentElement.querySelector('i')){
                     theTarget = e.target.parentElement.querySelector('i').className
 
@@ -525,11 +516,9 @@ function collectClicks(){
                         break;
                     case
                         1:
-                        console.log("-----CARD #1-----")
                         break;
                     case
                         2:
-                        console.log("-----CARD #2-----")
 
                     checkCard(pair, clicks)
                 }
@@ -541,12 +530,10 @@ function collectClicks(){
 
 async function checkCard(cardsArray, clicksArray){
     await sleep(500);
-    console.log('finish wait time')
 
     const theCards = document.querySelectorAll('.flip-card')
 
     if (cardsArray[0] !== cardsArray[1]) {
-
 //<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>
         clicksArray.forEach(target => {
             target.parentNode.parentNode.className = "flip-card-container"
@@ -582,8 +569,6 @@ async function checkCard(cardsArray, clicksArray){
     } else {
 //<<<<---------WILL ADD MOVES EVEN MATCHED---------->>>>>
 
-        console.log("MATCH MADE! SCORE!")
-        // debugger
         clicksArray.forEach(target => {
             target.parentNode.parentNode.style.pointerEvents = "none"
             target.parentNode.parentNode.style.pointerEvents = "none"
@@ -627,17 +612,13 @@ async function checkCard(cardsArray, clicksArray){
             <hr>
             <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link" color="maroon"><strong>Quit</strong></a> to exit the game. Thank you!</p>
         </div>`
-
-
      } else {
         collectClicks()
      }
 }
-// setTimeout(checkCard, 5000000);
+
 function removeDisable(){
 
-
-        // alert("DING DING DING!! WELL DONE!")
     const radios = document.querySelectorAll("input[type='radio']")
         radios.forEach(dot => {
             dot.removeAttribute('disabled')

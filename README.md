@@ -2,7 +2,7 @@
 
 # WELCOME TO FLIP!
 
-## Live App Demo - https://tolentinoel.github.io/flip/
+## App is hosted here --> https://tolentinoel.github.io/flip/
 
 See below for information before cloning:
 
