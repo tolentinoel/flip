@@ -23,25 +23,21 @@ document.addEventListener("DOMContentLoaded", () => {
         renderSideNav(e)
 
     })
-
-
 })
+
+
 // <<<<<<-------------FETCHING IMG URLs FROM APIs------------------>>>>>>>
 function fetchIcons(){
-
-    fetch("https://api.iconfinder.com/v2/icons/search?query=fantasy")
+    fetch("https://api.iconfinder.com/v2/icons/search?query=fantasy&price=free")
     .then(response => response.json())
     .then(data => {
-        // debugger
         data.icons.slice(0, 25).forEach(obj => {
             ICON_API.push(obj.raster_sizes[6].formats[0].preview_url)
         })
     })
-
 }
-// debugger
-function fetchRickMorty(){
 
+function fetchRickMorty(){
     fetch("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18")
     .then(response => response.json())
     .then(data => {
@@ -73,7 +69,6 @@ function renderSideNav(event){
       })
       .then(res => res.json())
       .then(data => {
-        //   debugger
           currentUser = data
         })
 
@@ -161,20 +156,19 @@ function fetchPastScores(){
 
     // debugger
     fetch(USERS_URL + '/' + `${currentUser.id}`)
-    .then(response => response.json())
-    .then(data => {
+        .then(response => response.json())
+        .then(data => {
 
-       data.boards.forEach(game => {
+        data.boards.forEach(game => {
            const li = document.createElement('li')
            li.innerHTML = `${game.theme} | ${game.difficulty}| MOVES:<strong>${game.moves}</strong>`
            pastScores.append(li)
-       })
+        })
     })
 }
 
 
 function createBoard(settings){
-
     const counter = document.getElementById('move-counter')
     const alertDiv = document.getElementById('alert-section')
     counter.innerHTML = " "
@@ -197,14 +191,12 @@ function createBoard(settings){
                 "moves": 0,
                 "user_id": currentUser.id
                 }
-        )
-      })
-      .then(res => res.json())
-      .then(boardData => {
-        //   debugger
+            )
+        })
+        .then(res => res.json())
+        .then(boardData => {
             const moveCounter = document.createElement('h4')
             moveCounter.innerText = `Moves: ${boardData.moves}`
-            // moveCounter.setAttribute('class','animate__animated animate__bounceInLeft')
             const moveDiv = document.getElementById('move-counter')
             moveDiv.appendChild(moveCounter)
             currentBoard = boardData
@@ -216,16 +208,12 @@ function createBoard(settings){
                     target.style.pointerEvents = "auto"
                 })
             }) //disabling radio buttons when user clicks startPlay
-
-
         })
-
 }
 
 
 function renderGame(ev, settings){
     ev.preventDefault()
-    const body = document.getElementById('main-doc')
     const quitDiv = document.getElementById('quitArea')
     quitDiv.innerHTML = " "
     const quitBtn = document.createElement('button')
@@ -296,7 +284,6 @@ function renderGame(ev, settings){
                 hardGame(newArr)
             }
     }
-
     const btn = document.querySelector("#startPlay")
     btn.innerText = 'Restart Game'
     btn.style.backgroundColor = "#c405e6"
@@ -304,8 +291,6 @@ function renderGame(ev, settings){
 }
 
 // <<<<<---------------- GAME DIFFICULTY FUNCTIONS ---------------->>>>>>>>>>
-
-
 function easyGame(arr){
     // FIRST, RENDER THE BOARD EASY MODE
     const num = 16
@@ -318,7 +303,7 @@ function easyGame(arr){
     arr.sort(() => Math.random() - 0.6)
     for(let b = 0;b < cardDiv.length; b+=1){
         if(arr[0].length > 25) {
-            // debugger
+            
             const icon = document.createElement('img')
             cardDiv[b].appendChild(icon)
             icon.setAttribute('src', arr[b])
@@ -329,12 +314,9 @@ function easyGame(arr){
             const icon = document.createElement('i')
             cardDiv[b].appendChild(icon)
             icon.setAttribute('class', arr[b])
-
         }
-
     }
-collectClicks()
-
+    collectClicks()
 }
 
 function mediumGame(mediumArr){
@@ -448,18 +430,14 @@ function createCards(number){
 
 }
 
-
-
 function themeDefault(){
     deck.style.background = "linear-gradient(160deg,#0eabfc 0%, rgb(161 0 157) 100%)"
     document.querySelectorAll('.flip-card-front').forEach(card => {
         card.style.backgroundColor = '#f7d900cc'
     })
-
 }
 
 function themeRickMorty(){
-
     const main = document.getElementById('main')
     main.style.backgroundColor = '#c9dfce'
     main.style.borderColor = '#733ccc'
@@ -469,7 +447,6 @@ function themeRickMorty(){
 
     deck.style.boxShadow = '12px 15px 20px 0 #28a745'
     deck.style.background = "linear-gradient(160deg,#0aa6ce, #9ac430 100%)"
-
 }
 
 function themeVector(){
@@ -535,11 +512,11 @@ async function checkCard(cardsArray, clicksArray){
 
     if (cardsArray[0] !== cardsArray[1]) {
 //<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>
+        currentBoard.moves+=1
         clicksArray.forEach(target => {
             target.parentNode.parentNode.className = "flip-card-container"
             target.parentNode.parentNode.className = "flip-card-container"
         })
-        currentBoard.moves+=1
 
         let updatedData = {
             "id": currentBoard.id,
@@ -568,13 +545,11 @@ async function checkCard(cardsArray, clicksArray){
 
     } else {
 //<<<<---------WILL ADD MOVES EVEN MATCHED---------->>>>>
-
+        currentBoard.moves+=1
         clicksArray.forEach(target => {
             target.parentNode.parentNode.style.pointerEvents = "none"
             target.parentNode.parentNode.style.pointerEvents = "none"
         })
-
-        currentBoard.moves+=1
 
         let updatedData = {
             "id": currentBoard.id,
@@ -618,7 +593,6 @@ async function checkCard(cardsArray, clicksArray){
 }
 
 function removeDisable(){
-
     const radios = document.querySelectorAll("input[type='radio']")
         radios.forEach(dot => {
             dot.removeAttribute('disabled')
