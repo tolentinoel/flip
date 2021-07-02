@@ -272,7 +272,7 @@ input {
 }
 
 .flip-card-container.flip .flip-card {
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
 /* Position the front and back side */
@@ -287,7 +287,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
 
 .flip-card-front {
@@ -437,4 +437,78 @@ a.btn-social, .btn-social{
 }
 .btn-dev:hover {
   background-color: #2e3138;
+}
+
+
+/* MOBILE PORTRAIT */
+@media (min-width: 320px) and (max-width: 480px){
+  #main{
+    display: flex;
+    height: 100vh;
+    padding: 0px;
+    justify-content: center;
+    border-width: 0px 0px 70px 0px;
+  }
+
+  #main-doc {
+    padding-top: 45%;
+  }
+
+  .sidenav {
+    height: 22%;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .sidenav header {
+    padding: 0;
+    height: fit-content;
+    font-size: 81px;
+    text-align: center;
+  }
+
+  #login{
+    width: 40%;
+  }
+
+  #login form{
+    padding: 11px 12px 14px 12px;
+    width: 190px;
+    height: 100px;
+  }
+
+  #icons{
+    display: flex;
+    bottom: -6px;
+  }
+
+  .deck{
+    width: 301px;
+    height: 301px;
+  }
+
+  .deck .card {
+    height: 65px;
+    width: 62px;
+    border-radius: 8px;
+}
+
+
+/* MOBILE LANDSCAPE */
+@media (min-width: 481px) and (max-width: 767px){
+
+}
+
+
+/* TABLE IPAD PORTRAIT */
+@media (min-width: 768px) and (max-width: 1024px){
+
+}
+
+
+/* TABLE IPAD LANDSCAPE */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+
 }
