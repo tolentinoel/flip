@@ -447,7 +447,7 @@ a.btn-social, .btn-social{
     height: 100vh;
     padding: 0px;
     justify-content: center;
-    border-width: 0px 0px 70px 0px;
+    border-width: 0px 0px 36px 0px;
   }
 
   #main-doc {
@@ -465,23 +465,39 @@ a.btn-social, .btn-social{
   .sidenav header {
     padding: 0;
     height: fit-content;
-    font-size: 81px;
+    font-size: 83px;
     text-align: center;
+    margin: 5px 13px;
   }
 
   #login{
-    width: 40%;
+    margin: 5px 0px;
+    width: 46%;
   }
 
-  #login form{
-    padding: 11px 12px 14px 12px;
-    width: 190px;
+  #login form {
+    padding: 7px 12px 14px 12px;
+    width: 175px;
     height: 100px;
+  }
+
+  #login form input[type="submit"] {
+    margin-bottom: 6px;
+    padding: 0 8px;
+    width: 100%;
+    height: 33px;
+  }
+  #login form input[type="text"] {
+    margin-bottom: 5px;
+    padding: 0 16px;
+    width: 100%;
+    height: 40px;
   }
 
   #icons{
     display: flex;
     bottom: -6px;
+    margin-right: 5px;
   }
 
   .deck{
@@ -493,6 +509,16 @@ a.btn-social, .btn-social{
     height: 65px;
     width: 62px;
     border-radius: 8px;
+  }
+
+  a.btn-social, .btn-social{
+    height: 38px;
+    line-height: 40px;
+    margin: 17px 7px;
+    width: 38px;
+  }
+
+
 }
 
 
