@@ -18,6 +18,10 @@ body {
   border-color: #a1009c;
 }
 
+#warning{
+  display: none;
+}
+
 .alert-success {
   border-radius: 20px;
   border: solid;
@@ -272,7 +276,7 @@ input {
 }
 
 .flip-card-container.flip .flip-card {
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
 /* Position the front and back side */
@@ -287,7 +291,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
 
 .flip-card-front {
@@ -437,4 +441,259 @@ a.btn-social, .btn-social{
 }
 .btn-dev:hover {
   background-color: #2e3138;
+}
+
+
+/* MOBILE PORTRAIT */
+@media (min-width: 320px) and (max-width: 480px){
+  #main{
+    display: flex;
+    height: 100vh;
+    padding: 0px;
+    justify-content: center;
+    border-width: 0px 0px 32px 0px;
+  }
+
+  #main-doc {
+    padding-top: 47%;
+  }
+
+  .sidenav {
+    height: 188px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .sidenav header {
+    padding: 0;
+    height: 161px;
+    font-size: 70px;
+    text-align: center;
+    margin: 5px 18px;
+  }
+
+  .sidenav ul{
+    text-align: left;
+    font-size: smaller;
+  }
+
+  #login{
+    margin: 5px 0px;
+    width: 46%;
+  }
+
+  #login form {
+    padding: 6px 6px 6px 6px;
+    width: 50%;
+    height: 110px;
+    position: absolute;
+    top: 9px;
+    right: 7px;
+    height: 168px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+  #login form input[type="submit"] {
+    margin-bottom: 6px;
+    margin-top: 5px;
+    width: 70%;
+    height: 33px;
+  }
+  #login form input[type="text"] {
+    margin-bottom: 0px;
+    padding: 0 16px;
+    width: 93%;
+    height: 33px;
+  }
+
+  #icons{
+    display: flex;
+    bottom: -6px;
+    margin-right: 5px;
+  }
+
+  .deck{
+    width: 312px;
+    height: 312px;
+    margin-top: 8px;
+  }
+
+  .deck .card {
+    height: 65px;
+    width: 62px;
+    border-radius: 8px;
+  }
+
+  a.btn-social, .btn-social{
+    height: 38px;
+    line-height: 40px;
+    margin: 17px 7px;
+    width: 38px;
+  }
+
+
+  #options{
+    font-size: small;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  #options div{
+    line-height: 27px;
+  }
+
+  #name-display, #move-counter {
+    width: 292px;
+    height: 28px;
+    margin: 10px 10px 4px 10px;
+  }
+
+  #name-display h2, #name-display h4{
+    font-size: x-large;
+    font-variant: petite-caps;
+    margin-bottom: 0px;
+  }
+
+  .flip-card-container{
+    width: 65px;
+    height: 65px;
+  }
+
+  .flip-card-front, .flip-card-back{
+    border-radius: 10px
+  }
+
+  #difDiv{
+    margin: 10px 0px 0px 0px;
+  }
+
+  #radioDiv{
+    margin: 3px 0px 10px 0px;
+  }
+
+  #score-list{
+    overflow-y: scroll;
+    height: 88px;
+    padding: 10px 10px 9px 10px;
+    width: 46%;
+    position: absolute;
+    left: 5px;
+    top: 74px;
+  }
+
+  #score-list p{
+    margin-bottom: 5px;
+  }
+
+  #score-list ul{
+    margin-inline-start: -5px;
+    margin-inline-end: 4px;
+  }
+
+  #startPlay {
+    width: 79%;
+    height: 31px;
+    border-radius: 14px;
+  }
+
+  #radioDiv label{
+    font-size: 22px;
+  }
+
+  #radioDiv p{
+    font-size: 30px;
+  }
+  #difDiv label{
+    font-size: 22px;
+  }
+
+  .custom-control{
+    padding-left: 21px;
+    padding-top: 2px;
+  }
+
+  #quitArea .btn{
+    padding: .3rem .5rem;
+    font-size: .8rem;
+  }
+
+  .alert{
+    margin-top: 20rem;
+    margin-left: -1rem;
+    font-family: Nerko One;
+  }
+
+  .alert-link strong{
+    color: red;
+  }
+
+}
+
+
+/* MOBILE LANDSCAPE */
+@media (min-width: 481px) and (max-width: 767px){
+  #icons{
+    display: none;
+  }
+
+  #main{
+    border-width: 0px 20px 0px 0px;
+  }
+
+  #main-doc{
+    padding-top: 0px;
+  }
+
+  #warning {
+    display: flex;
+    font-family: Nerko One;
+    font-size: 75px;
+    font-variant: petite-caps;
+    line-height: 55px;
+    position: absolute;
+    width: 91%;
+    height: 48%;
+    z-index: 2;
+    bottom: 25px;
+    left: 4%;
+    text-align: center;
+    padding: 38px 9px 22px 12px;
+    color: white;
+    border-radius: 20px;
+    background: #282e33f7;
+    border-top: 3px solid #434a52;
+    border-bottom: 3px solid #6c757d9c;
+  }
+
+
+  .deck{
+    width: 312px;
+    height: 312px;
+    margin-top: 8px;
+  }
+
+  .deck .card {
+    height: 65px;
+    width: 62px;
+    border-radius: 8px;
+  }
+
+}
+
+
+/* TABLE IPAD PORTRAIT */
+@media (min-width: 768px) and (max-width: 1024px){
+
+}
+
+
+/* TABLE IPAD LANDSCAPE */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+
 }
