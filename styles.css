@@ -451,11 +451,11 @@ a.btn-social, .btn-social{
   }
 
   #main-doc {
-    padding-top: 45%;
+    padding-top: 47%;
   }
 
   .sidenav {
-    height: 22%;
+    height: 27%;
     width: 100vw;
     display: flex;
     flex-direction: row;
@@ -464,8 +464,8 @@ a.btn-social, .btn-social{
 
   .sidenav header {
     padding: 0;
-    height: fit-content;
-    font-size: 83px;
+    height: 161px;
+    font-size: 67px;
     text-align: center;
     margin: 5px 13px;
   }
@@ -476,22 +476,26 @@ a.btn-social, .btn-social{
   }
 
   #login form {
-    padding: 7px 12px 14px 12px;
-    width: 175px;
-    height: 100px;
+    padding: 7px 8px 7px 12px;
+    width: 56%;
+    height: 110px;
+    position: absolute;
+    top: 9px;
+    height: 161px;
+    overflow-y: scroll;
   }
 
   #login form input[type="submit"] {
     margin-bottom: 6px;
-    padding: 0 8px;
-    width: 100%;
+    margin-top: 5px;
+    width: 70%;
     height: 33px;
   }
   #login form input[type="text"] {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     padding: 0 16px;
-    width: 100%;
-    height: 40px;
+    width: 93%;
+    height: 33px;
   }
 
   #icons{
@@ -501,8 +505,9 @@ a.btn-social, .btn-social{
   }
 
   .deck{
-    width: 301px;
-    height: 301px;
+    width: 312px;
+    height: 312px;
+    margin-top: 8px;
   }
 
   .deck .card {
@@ -518,6 +523,32 @@ a.btn-social, .btn-social{
     width: 38px;
   }
 
+
+  #options{
+    font-size: small;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  #name-display, #move-counter {
+    width: 292px;
+    height: 28px;
+    margin: 10px 10px 4px 10px;
+  }
+
+  #name-display h2, #name-display h4{
+    font-size: x-large;
+    font-variant: petite-caps;
+    margin-bottom: 0px;
+  }
+
+  .flip-card-container{
+    width: 62px;
+    height: 62px;
+  }
 
 }
 
