@@ -650,20 +650,38 @@ a.btn-social, .btn-social{
     padding-top: 0px;
   }
 
-  #warning{
+  #warning {
+    display: flex;
+    font-family: Nerko One;
+    font-size: 75px;
+    font-variant: petite-caps;
+    line-height: 55px;
     position: absolute;
     width: 91%;
-    height: 50%;
+    height: 48%;
     z-index: 2;
-    top: 113px;
+    bottom: 25px;
     left: 4%;
     text-align: center;
-    padding: 22px 22px 22px 22px;
+    padding: 38px 9px 22px 12px;
     color: white;
     border-radius: 20px;
     background: #282e33f7;
     border-top: 3px solid #434a52;
     border-bottom: 3px solid #6c757d9c;
+  }
+
+
+  .deck{
+    width: 312px;
+    height: 312px;
+    margin-top: 8px;
+  }
+
+  .deck .card {
+    height: 65px;
+    width: 62px;
+    border-radius: 8px;
   }
 
 }
