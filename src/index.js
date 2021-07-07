@@ -584,7 +584,7 @@ async function checkCard(cardsArray, clicksArray){
             <h4 class="alert-heading">Well done!</h4>
             <p>Aww yeah, you successfully finish a round! Finished within ${currentBoard.moves} moves!</p>
             <hr>
-            <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link" color="maroon"><strong>Quit</strong></a> to exit the game. Thank you!</p>
+            <p class="mb-0">Click Restart for another round or click <a href="index.html" class="alert-link"><strong color="red">Quit</strong></a> to exit the game. Thank you!</p>
         </div>`
      } else {
         collectClicks()
