@@ -447,7 +447,7 @@ a.btn-social, .btn-social{
     height: 100vh;
     padding: 0px;
     justify-content: center;
-    border-width: 0px 0px 36px 0px;
+    border-width: 0px 0px 32px 0px;
   }
 
   #main-doc {
@@ -455,7 +455,7 @@ a.btn-social, .btn-social{
   }
 
   .sidenav {
-    height: 27%;
+    height: 188px;
     width: 100vw;
     display: flex;
     flex-direction: row;
@@ -465,9 +465,14 @@ a.btn-social, .btn-social{
   .sidenav header {
     padding: 0;
     height: 161px;
-    font-size: 67px;
+    font-size: 70px;
     text-align: center;
-    margin: 5px 13px;
+    margin: 5px 18px;
+  }
+
+  .sidenav ul{
+    text-align: left;
+    font-size: smaller;
   }
 
   #login{
@@ -476,13 +481,15 @@ a.btn-social, .btn-social{
   }
 
   #login form {
-    padding: 7px 8px 7px 12px;
-    width: 56%;
+    padding: 6px 6px 6px 6px;
+    width: 50%;
     height: 110px;
     position: absolute;
     top: 9px;
-    height: 161px;
+    right: 7px;
+    height: 168px;
     overflow-y: scroll;
+    scroll-behavior: smooth;
   }
 
   #login form input[type="submit"] {
@@ -533,6 +540,10 @@ a.btn-social, .btn-social{
     justify-content: center;
   }
 
+  #options div{
+    line-height: 27px;
+  }
+
   #name-display, #move-counter {
     width: 292px;
     height: 28px;
@@ -546,8 +557,66 @@ a.btn-social, .btn-social{
   }
 
   .flip-card-container{
-    width: 62px;
-    height: 62px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .flip-card-front, .flip-card-back{
+    border-radius: 10px
+  }
+
+  #difDiv{
+    margin: 10px 0px 0px 0px;
+  }
+
+  #radioDiv{
+    margin: 3px 0px 10px 0px;
+  }
+
+  #score-list{
+    overflow-y: scroll;
+    height: 88px;
+    padding: 10px 10px 9px 10px;
+    width: 46%;
+    position: absolute;
+    left: 5px;
+    top: 74px;
+  }
+
+  #score-list p{
+    margin-bottom: 5px;
+  }
+
+  #score-list ul{
+    margin-inline-start: -5px;
+    margin-inline-end: 4px;
+  }
+
+  #startPlay {
+    width: 79%;
+    height: 31px;
+    border-radius: 14px;
+  }
+
+  #radioDiv label{
+    font-size: 22px;
+  }
+
+  #radioDiv p{
+    font-size: 30px;
+  }
+  #difDiv label{
+    font-size: 22px;
+  }
+
+  .custom-control{
+    padding-left: 21px;
+    padding-top: 2px;
+  }
+
+  #quitArea .btn{
+    padding: .3rem .5rem;
+    font-size: .8rem;
   }
 
 }

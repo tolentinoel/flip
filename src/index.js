@@ -509,11 +509,9 @@ function collectClicks(){
 async function checkCard(cardsArray, clicksArray){
     await sleep(500);
 
-    const theCards = document.querySelectorAll('.flip-card')
-
     if (cardsArray[0] !== cardsArray[1]) {
 //<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>
-        currentBoard.moves+=1
+        let addMove = currentBoard.moves += 1
         clicksArray.forEach(target => {
             target.parentNode.parentNode.className = "flip-card-container"
             target.parentNode.parentNode.className = "flip-card-container"
@@ -523,7 +521,7 @@ async function checkCard(cardsArray, clicksArray){
             "id": currentBoard.id,
             "theme": currentBoard.theme,
             "difficulty": currentBoard.difficulty,
-            "moves": currentBoard.moves,
+            "moves": addMove,
             "user_id": currentUser.id
             }
 
