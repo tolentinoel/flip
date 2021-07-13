@@ -507,7 +507,7 @@ function collectClicks(){
 }
 
 async function checkCard(cardsArray, clicksArray){
-    await sleep(500);
+    await sleep(600);
 
     if (cardsArray[0] !== cardsArray[1]) {
 //<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>

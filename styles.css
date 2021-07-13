@@ -451,7 +451,7 @@ a.btn-social, .btn-social{
     height: 100vh;
     padding: 0px;
     justify-content: center;
-    border-width: 0px 0px 32px 0px;
+    border-width: 0px 0px 27px 0px;
   }
 
   #main-doc {
@@ -511,14 +511,14 @@ a.btn-social, .btn-social{
 
   #icons{
     display: flex;
-    bottom: -6px;
+    bottom: -11px;
     margin-right: 5px;
   }
 
   .deck{
-    width: 312px;
-    height: 312px;
-    margin-top: 8px;
+    width: 306px;
+    height: 306px;
+    margin-top: 12px;
   }
 
   .deck .card {
@@ -548,10 +548,13 @@ a.btn-social, .btn-social{
     line-height: 27px;
   }
 
-  #name-display, #move-counter {
-    width: 292px;
-    height: 28px;
+  #name-display {
     margin: 10px 10px 4px 10px;
+    padding-top: 5px;
+  }
+
+  #move-counter {
+    margin: 8px 10px 4px 10px;
   }
 
   #name-display h2, #name-display h4{
