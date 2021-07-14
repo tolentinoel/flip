@@ -158,7 +158,7 @@ function fetchPastScores(){
     fetch(USERS_URL + '/' + `${currentUser.id}`)
         .then(response => response.json())
         .then(data => {
-        
+
         data.boards.forEach(game => {
            const li = document.createElement('li')
            li.innerHTML = `${game.theme} | ${game.difficulty}| MOVES:<strong>${game.moves}</strong>`
@@ -195,10 +195,13 @@ function createBoard(settings){
         })
         .then(res => res.json())
         .then(boardData => {
+            //disabling radio buttons when user clicks startPlay
+            //creating h4 element for move counter
+            //enabling pointer to each card on the deck
+
             const moveCounter = document.createElement('h4')
             moveCounter.innerText = `Moves: ${boardData.moves}`
-            const moveDiv = document.getElementById('move-counter')
-            moveDiv.appendChild(moveCounter)
+            document.getElementById('move-counter').append(moveCounter)
             currentBoard = boardData
             const radios = document.querySelectorAll("input[type='radio']")
             radios.forEach(dot => {
@@ -207,7 +210,7 @@ function createBoard(settings){
                 allCards.forEach(target => {
                     target.style.pointerEvents = "auto"
                 })
-            }) //disabling radio buttons when user clicks startPlay
+            })
         })
 }
 
@@ -303,7 +306,7 @@ function easyGame(arr){
     arr.sort(() => Math.random() - 0.6)
     for(let b = 0;b < cardDiv.length; b+=1){
         if(arr[0].length > 25) {
-            
+
             const icon = document.createElement('img')
             cardDiv[b].appendChild(icon)
             icon.setAttribute('src', arr[b])
@@ -352,6 +355,8 @@ function hardGame(hArray){
     deck.style.width = "800px"
     deck.style.height = "485px"
     deck.innerHTML = " "
+    deck.classList.add('hard')
+
     createCards(count)
 
     const cardDiv = deck.querySelectorAll('.flip-card-back')

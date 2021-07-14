@@ -35,7 +35,8 @@ body {
   z-index: 1;
   display: flex;
   line-height: normal;
-  top: 0;
+  bottom: 24rem;
+  left: 2.2rem;
   margin-right: 4%;
 }
 
@@ -635,10 +636,10 @@ a.btn-social, .btn-social{
   }
 
   .alert{
-    position: absolute;
-    top: 20rem;
+    position: absolute!important;
+    top: 2rem;
     width: 335px;
-    margin-top: 20rem;
+    margin-top: 1rem;
     margin-left: -1rem;
     font-family: Nerko One;
   }
@@ -651,10 +652,37 @@ a.btn-social, .btn-social{
     width: 360px!important;
   }
 
+  #card-deck.hard{
+    padding: 7px;
+    width: 337px!important;
+    height: 360px!important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
   .medium .flip-card-front,.medium .flip-card-back, .medium .flip-card-container{
     width: 50px!important;
     height: 60px!important;
   }
+
+  .medium .flip-card-back img{
+    width: inherit!important;
+    height: auto!important;
+  }
+
+  .hard .flip-card-front,.hard .flip-card-back, .hard .flip-card-container{
+    width: 50px!important;
+    height: 50px!important;
+  }
+
+  .hard .flip-card-back img{
+    width: inherit!important;
+    height: auto!important;
+  }
+
+ 
 
 }
 
