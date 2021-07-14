@@ -155,11 +155,10 @@ function fetchPastScores(){
     const pastScores = document.createElement('ul')
     div.appendChild(pastScores)
 
-    // debugger
     fetch(USERS_URL + '/' + `${currentUser.id}`)
         .then(response => response.json())
         .then(data => {
-
+        
         data.boards.forEach(game => {
            const li = document.createElement('li')
            li.innerHTML = `${game.theme} | ${game.difficulty}| MOVES:<strong>${game.moves}</strong>`
@@ -308,8 +307,8 @@ function easyGame(arr){
             const icon = document.createElement('img')
             cardDiv[b].appendChild(icon)
             icon.setAttribute('src', arr[b])
-            icon.setAttribute('width', "70px")
-            icon.setAttribute('height', "70px")
+            icon.setAttribute('width', "65px")
+            icon.setAttribute('height', "65px")
             icon.style.borderRadius = "5px"
         } else {
             const icon = document.createElement('i')
@@ -324,6 +323,7 @@ function mediumGame(mediumArr){
     const count = 24
     deck.style.width = "700px"
     deck.innerHTML = " "
+    deck.classList.add('medium')
     createCards(count)
      // <<<<----------SELECTING ALL CARD-BACKS TO RENDER THE ICONS---------->>>>
      const cardDiv = deck.querySelectorAll('.flip-card-back')
@@ -446,8 +446,8 @@ function themeRickMorty(){
     const body = document.getElementById('main-doc')
     body.style.backgroundColor = '#c9dfce'
 
-    deck.style.boxShadow = '12px 15px 20px 0 #28a745'
-    deck.style.background = "linear-gradient(160deg,#0aa6ce, #9ac430 100%)"
+    deck.style.boxShadow = 'rgb(129 175 41) 7px 5px 16px 0px'
+    deck.style.background = "linear-gradient(160deg, rgb(10, 166, 206), rgb(119 165 3) 100%)"
 }
 
 function themeVector(){
