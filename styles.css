@@ -457,6 +457,8 @@ a.btn-social, .btn-social{
 
   #main-doc {
     padding-top: 47%;
+    /* height: initial; */
+    height: 100vh;
   }
 
   .sidenav {
@@ -512,7 +514,7 @@ a.btn-social, .btn-social{
 
   #icons{
     display: flex;
-    bottom: 2px;
+    bottom: 0px;
     margin-right: 5px;
   }
 
@@ -529,10 +531,10 @@ a.btn-social, .btn-social{
   }
 
   a.btn-social, .btn-social{
-    height: 38px;
-    line-height: 40px;
-    margin: 3px 7px;
-    width: 38px;
+    height: 33px;
+    line-height: 36px;
+    margin: 2px 7px;
+    width: 33px;
   }
 
 
@@ -552,6 +554,7 @@ a.btn-social, .btn-social{
   #name-display {
     margin: 10px 10px 4px 10px;
     padding-top: 5px;
+    height: 25px;
   }
 
   #move-counter {
@@ -654,7 +657,7 @@ a.btn-social, .btn-social{
 
   #card-deck.hard{
     padding: 7px;
-    width: 337px!important;
+    width: 356px!important;
     height: 360px!important;
     display: flex;
     flex-wrap: wrap;
@@ -672,6 +675,11 @@ a.btn-social, .btn-social{
     height: auto!important;
   }
 
+  .medium .flip-card{
+    width: inherit;
+    height: inherit;
+  }
+
   .hard .flip-card-front,.hard .flip-card-back, .hard .flip-card-container{
     width: 50px!important;
     height: 50px!important;
@@ -680,6 +688,11 @@ a.btn-social, .btn-social{
   .hard .flip-card-back img{
     width: inherit!important;
     height: auto!important;
+  }
+
+  .hard .flip-card{
+    width: inherit!important;
+    height: inherit!important;
   }
 
  
@@ -699,6 +712,7 @@ a.btn-social, .btn-social{
 
   #main-doc{
     padding-top: 0px;
+    height: 99vh;
   }
 
   #warning {
