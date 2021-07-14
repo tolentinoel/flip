@@ -184,12 +184,16 @@ input {
 }
 
 #score-list{
-  font-size: 12px;
-  margin-top: 15px;
+  font-size: 16px;
+  margin-top: 10px;
   margin-right: auto;
   margin-left: auto;
-  padding: 15px 20px 15px 20px;
-  width: 85%;
+  padding: 10px 20px 15px 20px;
+  width: 32%;
+  height: 90%;
+  overflow-y: scroll;
+  position: absolute;
+  left: 14rem;
   border-radius: 15px;
   background: #282e33;
   border-top: 3px solid #434a52;
@@ -445,6 +449,16 @@ a.btn-social, .btn-social{
 }
 
 
+
+
+
+
+/* <<<<<<<--------------------- MEDIA QUERIES ------------------------>>>>>>>>>> */
+
+
+
+
+
 /* MOBILE PORTRAIT */
 @media (min-width: 320px) and (max-width: 480px){
   #main{
@@ -456,9 +470,7 @@ a.btn-social, .btn-social{
   }
 
   #main-doc {
-    padding-top: 47%;
-    /* height: initial; */
-    height: 100vh;
+    padding-top: 44%;
   }
 
   .sidenav {
@@ -479,7 +491,7 @@ a.btn-social, .btn-social{
 
   .sidenav ul{
     text-align: left;
-    font-size: smaller;
+    font-size: 11px;
   }
 
   #login{
@@ -694,10 +706,13 @@ a.btn-social, .btn-social{
     width: inherit!important;
     height: inherit!important;
   }
-
- 
-
 }
+
+
+
+
+
+
 
 
 /* MOBILE LANDSCAPE */
@@ -752,10 +767,178 @@ a.btn-social, .btn-social{
 }
 
 
+
+
+
+
+
+
 /* TABLE IPAD PORTRAIT */
 @media (min-width: 768px) and (max-width: 1024px){
-  
+
+  #main{
+    display: flex;
+    height: 100vh;
+    padding: 0px;
+    justify-content: center;
+    border-width: 0px 0px 32px 0px;
+  }
+
+  #main-doc {
+    padding-top: 28%;
+
+  }
+
+  #icons{
+    display: flex;
+    bottom: -8px;
+    margin-right: 14px;
+  }
+
+  .sidenav {
+    height: 188px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .sidenav header {
+    height: 88px;
+    font-size: 106px;
+    text-align: center;
+    margin: 5px 17px;
+  }
+
+  .sidenav ul{
+    text-align: left;
+    font-size: smaller;
+  }
+
+  #login{
+    margin: 5px 0px;
+    width: 46%;
+  }
+
+  #login form {
+    padding: 6px 6px 6px 6px;
+    width: 34%;
+    /* height: 110px; */
+    position: absolute;
+    top: 9px;
+    right: 7px;
+    height: 168px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+  #login form input[type="submit"] {
+    margin-bottom: 6px;
+    margin-top: 5px;
+    width: 70%;
+    height: 33px;
+  }
+
+  #login form input[type="text"] {
+    margin-bottom: 0px;
+    padding: 0 16px;
+    width: 93%;
+    height: 33px;
+  }
+
+  #startPlay{
+    width: 68%;
+    height: 35px;
+    border-radius: 23px;
+  }
+
+
+  .deck .card {
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+  }
+
+  #score-list{
+    font-size: 17px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px 12px 15px 12px;
+    width: 33%;
+    height: 89%;
+    overflow-y: scroll;
+    position: absolute;
+    left: 15.2rem;
+    border-radius: 15px;
+    background: #282e33;
+    border-top: 3px solid #434a52;
+    border-bottom: 3px solid #5c6269;
+  }
+
+  #score-list p{
+    margin-bottom: 2px;
+  }
+
+  .alert{
+    position: absolute!important;
+    top: -12rem;
+    width: 81vw;
+    margin-left: 2rem;
+    font-family: Nerko One;
+    font-size: larger;
+    position: relative;
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+  }
+
+  .alert strong{
+    color:red;
+  }
+
+  #move-counter h4{
+    font-size: 30px;
+    font-family: Nerko One;
+  }
+
+  #name-display h2{
+    font-size: 42px;
+    font-variant: petite-caps;
+    margin-bottom: 0px;
+    font-family: Nerko One;
+  }
+
+  #card-deck.hard{
+    width: 738px;
+    height: 450px;
+  }
+
+  .hard .flip-card-front,.hard .flip-card-back, .hard .flip-card-container{
+    width: 72px!important;
+    height: 87px!important;
+  }
+
+  .hard .flip-card-back img{
+    width: 95%;
+    height: auto!important;
+    border-radius: 12px;
+  }
+
+  .hard .flip-card{
+    width: inherit!important;
+    height: inherit!important;
+  }
+
+
+
+
 }
+
+
+
+
+
 
 
 /* TABLE IPAD LANDSCAPE */

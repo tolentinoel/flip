@@ -142,7 +142,8 @@ function renderSideNav(event){
 
 }
 
-function fetchPastScores(){
+async function fetchPastScores(currentUser){
+    await sleep(500)
 
     const listDiv = document.getElementById('score-container')
     listDiv.innerHTML = " "
@@ -290,7 +291,7 @@ function renderGame(ev, settings){
     const btn = document.querySelector("#startPlay")
     btn.innerText = 'Restart Game'
     btn.style.backgroundColor = "#c405e6"
-    fetchPastScores()
+    fetchPastScores(currentUser)
 }
 
 // <<<<<---------------- GAME DIFFICULTY FUNCTIONS ---------------->>>>>>>>>>
@@ -502,33 +503,35 @@ function collectClicks(){
                         break;
                     case
                         2:
-
+                    // Would only check if match once there's 2 elements to check
                     checkCard(pair, clicks)
                 }
             })
-
         })
-
 }
 
 async function checkCard(cardsArray, clicksArray){
     await sleep(600);
 
+    let addMove = currentBoard.moves += 1
+    let updatedData = {
+        "id": currentBoard.id,
+        "theme": currentBoard.theme,
+        "difficulty": currentBoard.difficulty,
+        "moves": addMove,
+        "user_id": currentUser.id
+        }
+
     if (cardsArray[0] !== cardsArray[1]) {
 //<<<<---------IF NOT EQUAL IT WILL FLIP IT BACK---------->>>>>
-        let addMove = currentBoard.moves += 1
+
         clicksArray.forEach(target => {
             target.parentNode.parentNode.className = "flip-card-container"
             target.parentNode.parentNode.className = "flip-card-container"
         })
 
-        let updatedData = {
-            "id": currentBoard.id,
-            "theme": currentBoard.theme,
-            "difficulty": currentBoard.difficulty,
-            "moves": addMove,
-            "user_id": currentUser.id
-            }
+
+
 
         fetch(BOARDS_URL + `/${currentBoard.id}`, {
             method: 'PATCH',
@@ -549,19 +552,11 @@ async function checkCard(cardsArray, clicksArray){
 
     } else {
 //<<<<---------WILL ADD MOVES EVEN MATCHED---------->>>>>
-        currentBoard.moves+=1
         clicksArray.forEach(target => {
             target.parentNode.parentNode.style.pointerEvents = "none"
             target.parentNode.parentNode.style.pointerEvents = "none"
         })
 
-        let updatedData = {
-            "id": currentBoard.id,
-            "theme": currentBoard.theme,
-            "difficulty": currentBoard.difficulty,
-            "moves": currentBoard.moves,
-            "user_id": currentUser.id
-            }
 
         fetch(BOARDS_URL + `/${currentBoard.id}`, {
             method: 'PATCH',
