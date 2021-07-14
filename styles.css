@@ -910,8 +910,8 @@ a.btn-social, .btn-social{
   }
 
   #card-deck.hard{
-    width: 738px;
-    height: 450px;
+    width: 730px!important;
+    height: 450px!important;
   }
 
   .hard .flip-card-front,.hard .flip-card-back, .hard .flip-card-container{
@@ -930,8 +930,9 @@ a.btn-social, .btn-social{
     height: inherit!important;
   }
 
-
-
+  #options div {
+    line-height: 25px;
+  }
 
 }
 
@@ -944,4 +945,108 @@ a.btn-social, .btn-social{
 /* TABLE IPAD LANDSCAPE */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
 
+  #main {
+    display: flex;
+    height: 115vh;
+    padding: 0px;
+    justify-content: center;
+    border-width: 0px 42px 0px 0px;
+  }
+
+  #main-doc {
+    padding-top: 19%;
+  }
+
+  .sidenav {
+    height: 186px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .sidenav header{
+    font-size: 120px;
+  }
+
+  #options div {
+    line-height: 25px;
+  }
+
+  #login form{
+    top: 9px;
+      right: 2rem;
+      height: 168px;
+  }
+
+  #score-list{
+    left: 18rem;
+  }
+
+  #name-display, #move-counter {
+    margin: 10px 10px 10px 5%;
+    height: 32px;
+  }
+
+  #icons{
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  a.btn-social, .btn-social {
+    margin: 9px 0px;
+  }
+
+  .flip-card-container{
+    width: 102px;
+    height: 88px;
+  }
+
+  .deck{
+    width: 466px;
+    height: 400px;
+  }
+
+  .deck .card{
+    height: 89px;
+    width: 98px;
+  }
+
+  #card-deck.hard{
+    width: 855px!important;
+    height: 395px!important;
+  }
+
+  .medium .flip-card-front,.medium .flip-card-back, .medium .flip-card-container{
+    height: 88px!important;
+  }
+
+  .medium .flip-card-back img{
+    width: inherit!important;
+    height: auto!important;
+  }
+
+  .medium .flip-card{
+    width: inherit;
+    height: inherit;
+  }
+
+
+  .hard .flip-card-front,.hard .flip-card-back, .hard .flip-card-container{
+    width: 62px!important;
+    height: 90px!important;
+  }
+
+  .hard .flip-card-back img{
+    width: 100%;
+    height: auto!important;
+    border-radius: 12px;
+  }
+
+  .hard .flip-card{
+    width: inherit!important;
+    height: inherit!important;
+  }
+
+  
 }
