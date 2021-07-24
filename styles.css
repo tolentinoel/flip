@@ -184,16 +184,16 @@ input {
 }
 
 #score-list{
-  font-size: 16px;
+  font-size: 13px;
   margin-top: 10px;
   margin-right: auto;
   margin-left: auto;
-  padding: 10px 20px 15px 20px;
-  width: 32%;
-  height: 90%;
+  padding: 10px 12px 15px 12px;
+  width: 80%;
+  height: 26%;
   overflow-y: scroll;
   position: absolute;
-  left: 14rem;
+  left: 2rem;
   border-radius: 15px;
   background: #282e33;
   border-top: 3px solid #434a52;
