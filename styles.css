@@ -482,11 +482,10 @@ a.btn-social, .btn-social{
   }
 
   .sidenav header {
-    padding: 0;
-    height: 173px;
+    align-self: flex-start;
     font-size: 70px;
     text-align: center;
-    margin: 5px 18px;
+    margin: -8px 18px;
   }
 
   .sidenav ul{
