@@ -12,7 +12,6 @@ See below for information before cloning:
     * CSS
     * HTML5
     * JavaScript
-    * Heroku
     * Github Pages
 
 ### Back-end
