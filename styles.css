@@ -461,9 +461,9 @@ a.btn-social, .btn-social{
 
 /* MOBILE PORTRAIT */
 @media (min-width: 320px) and (max-width: 480px){
+
   #main{
     display: flex;
-    height: 100vh;
     padding: 0px;
     justify-content: center;
     border-width: 0px 0px 27px 0px;
@@ -564,9 +564,9 @@ a.btn-social, .btn-social{
   }
 
   #name-display {
-    margin: 10px 10px 4px 10px;
+    margin: 20px 10px 4px 10px;
     padding-top: 5px;
-    height: 25px;
+    height: 22px;
   }
 
   #move-counter {
@@ -635,7 +635,9 @@ a.btn-social, .btn-social{
 
   #radioDiv p{
     font-size: 30px;
+    padding-top: 5px;
   }
+
   #difDiv label{
     font-size: 22px;
   }
@@ -931,7 +933,7 @@ a.btn-social, .btn-social{
   }
 
   #options div {
-    line-height: 25px;
+    line-height: 22px;
   }
 
 }
